@@ -25,7 +25,6 @@ public class Remove {
 			
 	private static int[] arr;
 	
-	private static int outputArrayIndex ;
 	
 	//private int outputArrayIndex;
 	
@@ -50,7 +49,7 @@ public class Remove {
 		
 		//int[] output = remove.removeDuplicate(arr);
 		
-		for(int i=0;i<outputArrayIndex;++i){
+		for(int i=0;i<output.length;++i){
 			ps.println(output[i]);
 		}
 	}
@@ -60,15 +59,17 @@ public class Remove {
 		readArray();
 	}
 	
+	
+	
 	public int[] removeDuplicate(int input[]){
 		
 		int tempNum,flag=0;
 		
-		int[] outputArray = new int[input.length];
+		int[] tempArray = new int[input.length];
 		
-		outputArrayIndex = 1;
+		int outputArrayIndex = 1;
 		
-		outputArray[0] = input[0];
+		tempArray[0] = input[0];
 		
 		for(int i=1;i<input.length;++i){
 			
@@ -80,7 +81,7 @@ public class Remove {
 			
 			for(int j=0;j<outputArrayIndex;++j){
 				//ps.println("num: "+tempNum);
-				if(tempNum == outputArray[j]){
+				if(tempNum == tempArray[j]){
 					//ps.println("Present");
 					flag = 1;
 					break;
@@ -93,7 +94,7 @@ public class Remove {
 			
 			if(flag == 0){
 				//ps.println("num: "+tempNum);
-				outputArray[outputArrayIndex] = tempNum;
+				tempArray[outputArrayIndex] = tempNum;
 				outputArrayIndex++;
 			}
 		}
@@ -101,6 +102,14 @@ public class Remove {
 		/*for(int i=0;i<outputArrayIndex;++i){
 			ps.println(outputArray[i]);
 		}*/
+		
+		int[] outputArray = new int[outputArrayIndex];
+		
+		for(int i=0;i<outputArrayIndex;++i){
+			
+			outputArray[i] = tempArray[i];
+		}
+		
 		return outputArray;
 	}
 	

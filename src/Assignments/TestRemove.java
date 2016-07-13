@@ -17,11 +17,12 @@ public class TestRemove {
 	/**
 	 * @throws java.lang.Exception
 	 */
+	Remove remove ;
+	int[] input;	
 	@Before
 	public void setUp() throws Exception {
-		
-		Remove remove = new Remove();
-		int[] array = new int[] {2,5,4,6,3,8,5,9,3,3,6,3,9,0};
+		remove = new Remove();
+		input = new int[] {2,5,4,6,3,8,5,9,3,3,6,3,9,0};
 	}
 
 	/**
@@ -29,7 +30,6 @@ public class TestRemove {
 	 */
 	@Test
 	public void testRemoveDuplicate() {
-		fail("Not yet implemented");
+		assertArrayEquals(remove.removeDuplicate(input), new int[]{2,5,4,6,3,8,9,0});
 	}
-
 }

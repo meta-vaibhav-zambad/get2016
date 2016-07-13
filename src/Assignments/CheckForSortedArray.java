@@ -54,7 +54,7 @@ public class CheckForSortedArray {
 		
 		for(int i=0;i<input.length-1;++i){
 			
-			if(arr[i] < arr[i+1]){
+			if(input[i] < input[i+1]){
 				
 				count++;
 			}
@@ -70,7 +70,7 @@ public class CheckForSortedArray {
 			
 			for(int i=0;i<input.length-1;++i){
 				
-				if(arr[i] > arr[i+1]){
+				if(input[i] > input[i+1]){
 					count++;
 				}
 			}
