@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Assignments;
+package pF_Assignments;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,22 +12,24 @@ import java.io.PrintStream;
  * @author admin
  *
  */
-public class CheckForSortedArray {
+public class LongestIncreasingSequence {
 	
 	private BufferedReader br ; 
 	
-	private static PrintStream ps ;		
-	
+	private static PrintStream ps ;			
+			
 	private int count; 
-	
+			
 	private static int[] arr;
 	
-	public CheckForSortedArray() {
-		// TODO Auto-generated constructor stub
+	private static int maxelements;
+	
+	public LongestIncreasingSequence(){
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
 		
 		ps = new PrintStream(System.out);
+		
 	}
 
 	/**
@@ -36,10 +38,18 @@ public class CheckForSortedArray {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		CheckForSortedArray check = new CheckForSortedArray();
-		check.readInput();
+		LongestIncreasingSequence longestIncreasingSequence = new LongestIncreasingSequence();
+		longestIncreasingSequence.readInput();
 		
-		ps.println("The result is: "+check.checkArray(arr));
+		ps.println("The Longest Increasing Sequence is : ");
+		
+		int[] output = longestIncreasingSequence.longestSequence(arr);
+		
+		//int[] output = remove.removeDuplicate(arr);
+		
+		for(int i=0;i<maxelements;++i){
+			ps.println(output[i]);
+		}
 
 	}
 	
@@ -48,40 +58,34 @@ public class CheckForSortedArray {
 		readArray();
 	}
 	
-	int checkArray(int[] input){
+	public int[] longestSequence(int[] input){
 		
-		int result = 0,count = 0;
+		int[] output = new int[input.length];
+		
+		int outputArrayIndex = 0;
 		
 		for(int i=0;i<input.length-1;++i){
 			
 			if(input[i] < input[i+1]){
-				
-				count++;
+				//ps.println("inp: "+input[i]);
+				output[outputArrayIndex] = input[i];
+				outputArrayIndex++;
+			}
+			
+			
+			
+			if(maxelements < outputArrayIndex){
+				maxelements = outputArrayIndex;
 			}
 		}
 		
-		if(count == input.length-1){
-			return 1;
-		}
+		//ps.println("out: "+outputArrayIndex);
 		
-		else{
-			
-			count = 0;
-			
-			for(int i=0;i<input.length-1;++i){
-				
-				if(input[i] > input[i+1]){
-					count++;
-				}
-			}
-			
-			if(count == input.length - 1){
-				return 2;
-			}
-			
-		}
+		output[outputArrayIndex] = input[outputArrayIndex+1];
+		maxelements++;
 		
-		return 0;
+		return output;
+		
 	}
 	
 	private int getInputFromKeyboard(){

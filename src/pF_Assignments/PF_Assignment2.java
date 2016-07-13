@@ -1,4 +1,4 @@
-package Assignments;
+package pF_Assignments;
 
 
 import java.io.BufferedReader;
@@ -15,7 +15,7 @@ import java.io.PrintStream;
  * @author admin
  *
  */
-public class Remove {
+public class PF_Assignment2 {
 	
 	private BufferedReader br ; 
 	
@@ -28,7 +28,7 @@ public class Remove {
 	
 	//private int outputArrayIndex;
 	
-	public Remove(){
+	public PF_Assignment2(){
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -40,7 +40,7 @@ public class Remove {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Remove remove = new Remove();
+		PF_Assignment2 remove = new PF_Assignment2();
 		remove.readInput();
 		
 		ps.println("The array by removing all the duplicated elements is : ");
