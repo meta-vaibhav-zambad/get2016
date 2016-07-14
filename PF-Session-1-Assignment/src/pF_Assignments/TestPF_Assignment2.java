@@ -30,6 +30,6 @@ public class TestPF_Assignment2 {
 	 */
 	@Test
 	public void testRemoveDuplicate() {
-		assertArrayEquals(remove.removeDuplicate(input), new int[]{2,5,4,6,3,8,9,0});
+		assertArrayEquals(new int[]{2,5,4,6,3,8,9,0},remove.removeDuplicate(input));
 	}
 }
