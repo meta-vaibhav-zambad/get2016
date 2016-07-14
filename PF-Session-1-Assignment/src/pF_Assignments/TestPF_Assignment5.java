@@ -35,9 +35,9 @@ public class TestPF_Assignment5 {
 	 */
 	@Test
 	public void testCheckArray() {
-		assertEquals(check.checkArray(array1), 1);
-		assertEquals(check.checkArray(array2),2);
-		assertEquals(check.checkArray(array3),0);
+		assertEquals(1,check.checkArray(array1));
+		assertEquals(2,check.checkArray(array2));
+		assertEquals(0,check.checkArray(array3));
 	}
 
 }
