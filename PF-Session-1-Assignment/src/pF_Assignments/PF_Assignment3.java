@@ -1,7 +1,6 @@
 /**
  * 
  */
-package Assignments;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,22 +11,22 @@ import java.io.PrintStream;
  * @author admin
  *
  */
-public class CheckForSortedArray {
+public class PF_Assignment3 {
 	
 	private BufferedReader br ; 
 	
-	private static PrintStream ps ;		
-	
+	private static PrintStream ps ;			
+			
 	private int count; 
-	
+			
 	private static int[] arr;
 	
-	public CheckForSortedArray() {
-		// TODO Auto-generated constructor stub
+	public PF_Assignment3(){
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
 		
 		ps = new PrintStream(System.out);
+		
 	}
 
 	/**
@@ -36,10 +35,17 @@ public class CheckForSortedArray {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		CheckForSortedArray check = new CheckForSortedArray();
-		check.readInput();
+		PF_Assignment3 longestIncreasingSequence = new PF_Assignment3();
+		longestIncreasingSequence.readInput();
 		
-		ps.println("The result is: "+check.checkArray(arr));
+		ps.println("The Longest Increasing Sequence is : ");
+		
+		int[] output = longestIncreasingSequence.longestSequence(arr);
+		
+		for(int i=0;i<output.length;++i){
+			ps.println(output[i]);
+		}
+		
 
 	}
 	
@@ -48,40 +54,37 @@ public class CheckForSortedArray {
 		readArray();
 	}
 	
-	int checkArray(int[] input){
+	public int[] longestSequence(int[] input){
 		
-		int result = 0,count = 0;
+		int maxcount = 0,count = 0,temp=0,lastIndex = 0,startIndex = 0;
 		
 		for(int i=0;i<input.length-1;++i){
 			
 			if(input[i] < input[i+1]){
-				
 				count++;
+				lastIndex = i+1;
 			}
-		}
-		
-		if(count == input.length-1){
-			return 1;
-		}
-		
-		else{
+			else{
+				count = 0;
+			}
 			
-			count = 0;
-			
-			for(int i=0;i<input.length-1;++i){
+			if(maxcount < count){
+				maxcount = count;
 				
-				if(input[i] > input[i+1]){
-					count++;
-				}
 			}
-			
-			if(count == input.length - 1){
-				return 2;
-			}
-			
+		}
+		startIndex = lastIndex - maxcount;
+		
+		temp = 0;
+		
+		int[] outputArray = new int[maxcount+1];
+		
+		for(int i=startIndex;i<=lastIndex;++i){
+			outputArray[temp] = input[i];
+			temp++;
 		}
 		
-		return 0;
+		return outputArray;
 	}
 	
 	private int getInputFromKeyboard(){

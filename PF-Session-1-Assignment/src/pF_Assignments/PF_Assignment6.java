@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Assignments;
+package pF_Assignments;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.io.PrintStream;
  * @author admin
  *
  */
-public class JoinSortedArrays {
+public class PF_Assignment6 {
 	
 	
 	private BufferedReader br ; 
@@ -33,7 +33,7 @@ public class JoinSortedArrays {
 	
 	private static int outputArrayIndex ;
 	
-	public JoinSortedArrays(){
+	public PF_Assignment6(){
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -46,7 +46,7 @@ public class JoinSortedArrays {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		JoinSortedArrays joinsorted = new JoinSortedArrays();
+		PF_Assignment6 joinsorted = new PF_Assignment6();
 		joinsorted.readInput();
 		
 		c = new int[countA + countB];
