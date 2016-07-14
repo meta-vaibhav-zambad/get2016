@@ -37,7 +37,7 @@ public class TestPF_Assignment6 {
 	 */
 	@Test
 	public void testJoin() {
-		assertArrayEquals(join.join(arrayA, asize, arrayB, bsize, arrayC), new int[]{1,2,9,10,11,12,14,17,19});
+		assertArrayEquals(new int[]{1,2,9,10,11,12,14,17,19},join.join(arrayA, asize, arrayB, bsize, arrayC));
 	}
 
 }
