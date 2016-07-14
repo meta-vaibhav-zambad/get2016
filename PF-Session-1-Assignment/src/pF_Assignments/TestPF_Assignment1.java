@@ -33,7 +33,7 @@ public class TestPF_Assignment1 {
 	@Test
 	public void testConvertBinaryToOctal() {
 		
-		assertEquals(65, convert.convertBinaryToOctal(binaryNumber));
+		assertEquals(convert.convertBinaryToOctal(binaryNumber),65);
 		
 	}
 
