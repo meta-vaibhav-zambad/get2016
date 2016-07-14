@@ -1,7 +1,6 @@
 /**
  * 
  */
-package pF_Assignments;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -56,38 +55,33 @@ public class PF_Assignment3 {
 	}
 	
 	public int[] longestSequence(int[] input){
-
-		int[] tempArray = new int[input.length];
 		
-		int maxcount = 0,count = 0,temp=0,lastIndex = 0;
+		int maxcount = 0,count = 0,temp=0,lastIndex = 0,startIndex = 0;
 		
 		for(int i=0;i<input.length-1;++i){
+			
 			if(input[i] < input[i+1]){
-				tempArray[temp] = input[i];
-				temp++;
 				count++;
 				lastIndex = i+1;
 			}
 			else{
-				if(maxcount < count){
-					
-					maxcount = count;
-					count = 0;
-					temp = 0;
-				}
+				count = 0;
+			}
+			
+			if(maxcount < count){
+				maxcount = count;
+				
 			}
 		}
-		if(maxcount < count){
-			maxcount = count;
-		}
-
-		tempArray[maxcount] = input[lastIndex];
-		maxcount++;
+		startIndex = lastIndex - maxcount;
 		
-		int[] outputArray = new int[maxcount];
+		temp = 0;
 		
-		for(int i=0;i<maxcount;++i){
-			outputArray[i] = tempArray[i];
+		int[] outputArray = new int[maxcount+1];
+		
+		for(int i=startIndex;i<=lastIndex;++i){
+			outputArray[temp] = input[i];
+			temp++;
 		}
 		
 		return outputArray;
