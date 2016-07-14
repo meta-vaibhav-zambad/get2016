@@ -12,7 +12,7 @@ import java.io.PrintStream;
  * @author admin
  *
  */
-public class LongestIncreasingSequence {
+public class PF_Assignment3 {
 	
 	private BufferedReader br ; 
 	
@@ -22,9 +22,7 @@ public class LongestIncreasingSequence {
 			
 	private static int[] arr;
 	
-	private static int maxelements;
-	
-	public LongestIncreasingSequence(){
+	public PF_Assignment3(){
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -38,18 +36,17 @@ public class LongestIncreasingSequence {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		LongestIncreasingSequence longestIncreasingSequence = new LongestIncreasingSequence();
+		PF_Assignment3 longestIncreasingSequence = new PF_Assignment3();
 		longestIncreasingSequence.readInput();
 		
 		ps.println("The Longest Increasing Sequence is : ");
 		
 		int[] output = longestIncreasingSequence.longestSequence(arr);
 		
-		//int[] output = remove.removeDuplicate(arr);
-		
-		for(int i=0;i<maxelements;++i){
+		for(int i=0;i<output.length;++i){
 			ps.println(output[i]);
 		}
+		
 
 	}
 	
@@ -59,33 +56,41 @@ public class LongestIncreasingSequence {
 	}
 	
 	public int[] longestSequence(int[] input){
+
+		int[] tempArray = new int[input.length];
 		
-		int[] output = new int[input.length];
-		
-		int outputArrayIndex = 0;
+		int maxcount = 0,count = 0,temp=0,lastIndex = 0;
 		
 		for(int i=0;i<input.length-1;++i){
-			
 			if(input[i] < input[i+1]){
-				//ps.println("inp: "+input[i]);
-				output[outputArrayIndex] = input[i];
-				outputArrayIndex++;
+				tempArray[temp] = input[i];
+				temp++;
+				count++;
+				lastIndex = i+1;
 			}
-			
-			
-			
-			if(maxelements < outputArrayIndex){
-				maxelements = outputArrayIndex;
+			else{
+				if(maxcount < count){
+					
+					maxcount = count;
+					count = 0;
+					temp = 0;
+				}
 			}
 		}
+		if(maxcount < count){
+			maxcount = count;
+		}
+
+		tempArray[maxcount] = input[lastIndex];
+		maxcount++;
 		
-		//ps.println("out: "+outputArrayIndex);
+		int[] outputArray = new int[maxcount];
 		
-		output[outputArrayIndex] = input[outputArrayIndex+1];
-		maxelements++;
+		for(int i=0;i<maxcount;++i){
+			outputArray[i] = tempArray[i];
+		}
 		
-		return output;
-		
+		return outputArray;
 	}
 	
 	private int getInputFromKeyboard(){
