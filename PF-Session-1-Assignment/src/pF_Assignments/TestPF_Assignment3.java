@@ -33,7 +33,7 @@ public class TestPF_Assignment3 {
 	 */
 	@Test
 	public void testLongestSequence() {
-		assertArrayEquals(longestSequence.longestSequence(Array), new int[]{1,2,4,5,6,7,8,9});
+		assertArrayEquals(new int[]{1,2,4,5,6,7,8,9},longestSequence.longestSequence(Array));
 	}
 
 }
