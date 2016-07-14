@@ -1,21 +1,18 @@
-package Assignments;
-
+/**
+ * 
+ */
+package pF_Assignments;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
-
-/**
- * 
- */
-
 /**
  * @author admin
  *
  */
-public class Remove {
+public class PF_Assignment3 {
 	
 	private BufferedReader br ; 
 	
@@ -25,14 +22,12 @@ public class Remove {
 			
 	private static int[] arr;
 	
-	
-	//private int outputArrayIndex;
-	
-	public Remove(){
+	public PF_Assignment3(){
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
 		
 		ps = new PrintStream(System.out);
+		
 	}
 
 	/**
@@ -40,18 +35,19 @@ public class Remove {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Remove remove = new Remove();
-		remove.readInput();
 		
-		ps.println("The array by removing all the duplicated elements is : ");
+		PF_Assignment3 longestIncreasingSequence = new PF_Assignment3();
+		longestIncreasingSequence.readInput();
 		
-		int[] output = remove.removeDuplicate(arr);
+		ps.println("The Longest Increasing Sequence is : ");
 		
-		//int[] output = remove.removeDuplicate(arr);
+		int[] output = longestIncreasingSequence.longestSequence(arr);
 		
 		for(int i=0;i<output.length;++i){
 			ps.println(output[i]);
 		}
+		
+
 	}
 	
 	public void readInput(){
@@ -59,54 +55,38 @@ public class Remove {
 		readArray();
 	}
 	
-	
-	
-	public int[] removeDuplicate(int input[]){
-		
-		int tempNum,flag=0;
-		
+	public int[] longestSequence(int[] input){
+
 		int[] tempArray = new int[input.length];
 		
-		int outputArrayIndex = 1;
+		int maxcount = 0,count = 0,temp=0,lastIndex = 0;
 		
-		tempArray[0] = input[0];
-		
-		for(int i=1;i<input.length;++i){
-			
-			flag = 0;
-			
-			tempNum = input[i];
-			
-			
-			
-			for(int j=0;j<outputArrayIndex;++j){
-				//ps.println("num: "+tempNum);
-				if(tempNum == tempArray[j]){
-					//ps.println("Present");
-					flag = 1;
-					break;
-				}
-				else{
-					flag = 0;
-				}
+		for(int i=0;i<input.length-1;++i){
+			if(input[i] < input[i+1]){
+				tempArray[temp] = input[i];
+				temp++;
+				count++;
+				lastIndex = i+1;
 			}
-			
-			
-			if(flag == 0){
-				//ps.println("num: "+tempNum);
-				tempArray[outputArrayIndex] = tempNum;
-				outputArrayIndex++;
+			else{
+				if(maxcount < count){
+					
+					maxcount = count;
+					count = 0;
+					temp = 0;
+				}
 			}
 		}
+		if(maxcount < count){
+			maxcount = count;
+		}
+
+		tempArray[maxcount] = input[lastIndex];
+		maxcount++;
 		
-		/*for(int i=0;i<outputArrayIndex;++i){
-			ps.println(outputArray[i]);
-		}*/
+		int[] outputArray = new int[maxcount];
 		
-		int[] outputArray = new int[outputArrayIndex];
-		
-		for(int i=0;i<outputArrayIndex;++i){
-			
+		for(int i=0;i<maxcount;++i){
 			outputArray[i] = tempArray[i];
 		}
 		

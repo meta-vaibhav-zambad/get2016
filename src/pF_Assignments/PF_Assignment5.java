@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Assignments;
+package pF_Assignments;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.io.PrintStream;
  * @author admin
  *
  */
-public class CheckForSortedArray {
+public class PF_Assignment5 {
 	
 	private BufferedReader br ; 
 	
@@ -22,7 +22,7 @@ public class CheckForSortedArray {
 	
 	private static int[] arr;
 	
-	public CheckForSortedArray() {
+	public PF_Assignment5() {
 		// TODO Auto-generated constructor stub
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,7 +36,7 @@ public class CheckForSortedArray {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		CheckForSortedArray check = new CheckForSortedArray();
+		PF_Assignment5 check = new PF_Assignment5();
 		check.readInput();
 		
 		ps.println("The result is: "+check.checkArray(arr));
