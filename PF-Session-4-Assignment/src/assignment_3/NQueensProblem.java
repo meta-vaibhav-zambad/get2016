@@ -1,70 +1,118 @@
 /**
+ * @author Vaibhav Zambad
  * 
+ * Date : 19 July 2016
+ *
+ * Aim : To return all the permutations of given string
  */
 package assignment_3;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/**
- * @author vaibhav
- *
- */
+
 public class NQueensProblem {
 
 	/**
 	 * @param args
+	 * 
+	 * Main method to test the program
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		NQueensProblem nq = new NQueensProblem();
 		
-		int[][] board = new int[8][8];
+		int dimensionOfMatrix = nq.readNumberOfQueens();
 		
-		nq.nQueen(board, 0, 0, 8, 8);
+		int[][] board = new int[dimensionOfMatrix][dimensionOfMatrix];
+		
+		nq.nQueen(board, 0, dimensionOfMatrix);
+		
+		
+		for(int i=0;i<dimensionOfMatrix;++i){
+			for(int j=0;j<dimensionOfMatrix;++j){
+				System.out.print(board[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println();
 
 	}
 	
-	public void nQueen(int[][]board ,int startRow,int startColumn,int totalRows,int totalColumns){
+	/**
+	 * 
+	 * @param board
+	 * @param startRow
+	 * @param dimensionOfMatrix
+	 * @return board containing the required positions
+	 * 
+	 * Here value "20" is taken as queen for simplicity
+	 */
+	public int[][] nQueen(int[][]board ,int startRow,int dimensionOfMatrix){
 		
-		
+		// local variable for checking certain conditions
 		int flag = 0 , count2=0;
 		
+		// column value to check for queens
 		int columnValue=0;
 		
-		for(int loopVariableForColumn = startColumn; loopVariableForColumn < totalColumns ; ++loopVariableForColumn){
+		// for loop for traversing the columns 
+		for(int loopVariableForColumn = 0; loopVariableForColumn < dimensionOfMatrix ; ++loopVariableForColumn){
 			
-			if(board[startRow][loopVariableForColumn] == 0){
-				
-				board[startRow][loopVariableForColumn] = 20;
-				
-				columnValue = loopVariableForColumn;
-				
-				flag = 1;
-				
-				break;
-				
-			}
-			
-			else if(board[startRow][loopVariableForColumn] == 20){
+			// here if the queen is already placed and we want to backtrack then we need to place 
+			// 0 at that position
+			if(board[startRow][loopVariableForColumn] == 20){
 				
 				board[startRow][loopVariableForColumn] = 0;
 				
-				//flag = 1;
 			}
+			//if the queen is not placed at that position then we need to place the queen
+			else{
+				boolean check=true;
+				
+				// so for iterating the column to place the queen 
+				// here there is a need to backtrack
+				for(int i=loopVariableForColumn+1;i<dimensionOfMatrix;i++){
+					
+					// but if the queen is at previous position then do check false
+					if(board[startRow][i] == 20){
+						check=false;
+					}
+				}
+				
+				// now if the queen is not placed and queen is not at previous positions 
+				// then place the queen there and no need to backtrack
+				if(board[startRow][loopVariableForColumn] == 0 && check){
+					
+					board[startRow][loopVariableForColumn] = 20;
+					
+					columnValue = loopVariableForColumn;
+					
+					flag = 1;
+					
+					break;
+					
+				}
+			}
+			
 		}
 		
+		// condition of backtrack 
 		if(flag!=1){
 			
-			//System.out.println(startRow);
 			
 			int count1 = 0;
 			
-			for(int loopVariableForRow = 0;loopVariableForRow < totalRows ;++loopVariableForRow){
+			// checking the whole board to revert back the values 
+			// updated due to placement of the queen at that position
+			for(int loopVariableForRow = 0;loopVariableForRow < dimensionOfMatrix ;++loopVariableForRow){
 				
-				for(int loopVariableForColumn = 0;loopVariableForColumn < totalColumns ;++loopVariableForColumn){
+				for(int loopVariableForColumn = 0;loopVariableForColumn < dimensionOfMatrix ;++loopVariableForColumn){
 					
+					// 
 					if(board[loopVariableForRow][loopVariableForColumn] == startRow){
 						
 						board[loopVariableForRow][loopVariableForColumn] = 0;
@@ -72,45 +120,49 @@ public class NQueensProblem {
 				}
 			}
 			
-			for(int i=0;i<totalRows;++i){
-				
-				for(int j=0;j<totalColumns;++j){
-					
-					System.out.print(board[i][j]+" ");
-				}
-				
-				System.out.println();
-			}
 			
-			System.out.println();
-			
-			
-			for(int loopVariableForRow = 0;loopVariableForRow < totalRows ;++loopVariableForRow){
+			// this is for checking whether there is queen in each row
+			for(int loopVariableForRow = 0;loopVariableForRow < dimensionOfMatrix ;++loopVariableForRow){
 				
-				for(int loopVariableForColumn = 0;loopVariableForColumn < totalColumns ;++loopVariableForColumn){
+				for(int loopVariableForColumn = 0;loopVariableForColumn < dimensionOfMatrix ;++loopVariableForColumn){
 					
 					if(board[loopVariableForRow][loopVariableForColumn] == startRow){
 						
 						board[loopVariableForRow][loopVariableForColumn] = 20;
 						
 						count1++;
+						break;
 					}
 				}
 			}
 			
-			if(count1 == 8){
-				return ;
+			// if yes then update the board by replacing the value 20 and other value by 0
+			if(count1 == dimensionOfMatrix){
+				
+				for(int i=0;i<dimensionOfMatrix;++i){
+					for(int j=0;j<dimensionOfMatrix;++j){
+						if(board[i][j] == 20){
+							board[i][j] = 1;
+						}
+						else{
+							board[i][j]=0;
+						}
+					}
+				}
+				return board;
 			}
 			
-			//return;
 			
-			nQueen(board, startRow-1, 0, totalRows, totalColumns);
+			// if no then again recursively call the method by decreasing the row as 
+			// the previous queen placed is not at correct position
+			return nQueen(board, startRow-1,dimensionOfMatrix);
 			
 			
 			//return ;
 		}
 		
-		for(int loopVariableForRow = startRow+1;loopVariableForRow < totalRows ; ++loopVariableForRow){
+		// updating the values of rows due to the placement of queens
+		for(int loopVariableForRow = startRow+1;loopVariableForRow < dimensionOfMatrix ; ++loopVariableForRow){
 			
 			if(board[loopVariableForRow][columnValue] == 0 ){
 				
@@ -119,7 +171,8 @@ public class NQueensProblem {
 			
 		}
 		
-		for(int loopVariableForColumn = startColumn+1;loopVariableForColumn < totalColumns ; ++loopVariableForColumn){
+		// updating the values of columns due to the placement of queens
+		for(int loopVariableForColumn = 1;loopVariableForColumn < dimensionOfMatrix ; ++loopVariableForColumn){
 			
 			if(board[startRow][loopVariableForColumn] == 0){
 				
@@ -127,8 +180,9 @@ public class NQueensProblem {
 			}
 		}
 		
+		// updating the values diagonally right down to right due to the placement of queens
 		for(int loopVariableForRow = startRow , loopVariableForColumn = columnValue  ; 
-					loopVariableForRow < totalRows - 1 && loopVariableForColumn  < totalColumns - 1 ;
+					loopVariableForRow < dimensionOfMatrix - 1 && loopVariableForColumn  < dimensionOfMatrix - 1 ;
 						loopVariableForColumn++,loopVariableForRow++){
 			
 			if(board[loopVariableForRow+1][loopVariableForColumn+1] == 0){
@@ -137,8 +191,9 @@ public class NQueensProblem {
 			}
 		}
 		
+		// updating the values diagonally left down to right due to the placement of queens
 		for(int loopVariableForRow = startRow , loopVariableForColumn = columnValue   ; 
-				loopVariableForRow < totalRows - 1 && loopVariableForColumn  > 0 ;
+				loopVariableForRow < dimensionOfMatrix - 1 && loopVariableForColumn  > 0 ;
 					loopVariableForColumn--,loopVariableForRow++){
 			
 			if(board[loopVariableForRow+1][loopVariableForColumn-1] == 0){
@@ -147,36 +202,46 @@ public class NQueensProblem {
 			}
 		}
 		
-		for(int i=0;i<totalRows;++i){
-			for(int j=0;j<totalColumns;++j){
-				
-				System.out.print(board[i][j]+" ");
-			}
-			
-			System.out.println();
-		}
-		
-		System.out.println();
 
-		int flag1 = 0;
-		for(int i=0;i<totalRows;++i){
-			for(int j=0;j<totalColumns;++j){
+		//checking for the base condition
+		for(int i=0;i<dimensionOfMatrix;++i){ 
+			for(int j=0;j<dimensionOfMatrix;++j){
 				
 				if(board[i][j]  == 20){
 					
 					count2++;
+					break;
 				}
 			}
 		}
 		
-		if(count2 == 8){
+		// if true then updating board by replacing 20 as 1 and others as 0
+		if(count2 == dimensionOfMatrix){
 			
-			return ;
+			for(int i=0;i<dimensionOfMatrix;++i){
+				for(int j=0;j<dimensionOfMatrix;++j){
+					if(board[i][j] == 20){
+						board[i][j] = 1;
+					}
+					else{
+						board[i][j]=0;
+					}
+				}
+			}
+			
+			return board;
 		}
-		nQueen(board, startRow+1, startColumn, totalRows, totalColumns);
+		
+		// if no then again call the method by incrementing values of row
+		return nQueen(board, startRow+1, dimensionOfMatrix);
 		
 	}
-	private int readNumberOfDisk(){
+	
+	/**
+	 * 
+	 * @return numberOfQueens
+	 */
+	private int readNumberOfQueens(){
 		
 		while(true){
 			
@@ -186,10 +251,11 @@ public class NQueensProblem {
 				
 				int numOfQueens = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
 				
-				while(numOfQueens <= 0){
+				while(numOfQueens < 4){
 					
+					System.out.println("Not Possible for "+numOfQueens+" queens");
 					
-					System.out.println("Please enter the valid value for number of disks");
+					System.out.println("Please enter the valid value for number of queens");
 					
 					numOfQueens = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
 					
@@ -203,5 +269,4 @@ public class NQueensProblem {
 			}
 		}
 	}
-
 }

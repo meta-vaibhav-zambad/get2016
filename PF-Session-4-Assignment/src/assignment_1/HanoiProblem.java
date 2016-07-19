@@ -1,28 +1,35 @@
 /**
+ * @author Vaibhav Zambad
  * 
+ * Date : 19 July 2016
+ *
+ * Aim : To return List of movements of disk in Tower Of Hanoi Problem
  */
+
+//package name reflects the assignment number
 package assignment_1;
 
+//required imports to use inbuilt function to take user inputs
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;;
 
-/**
- * @author vaibhav
- *
- */
+
 public class HanoiProblem {
 
 	/**
 	 * @param args
+	 * 
+	 * Main Method to test the implementation of program
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
+		// object of class is created 
 		HanoiProblem hanoiProblem = new HanoiProblem();
 		
+		//List of String is used to store the required steps
 		List<String> requiredStepsList = new ArrayList<String>();
 		
 		requiredStepsList = hanoiProblem.towerOfHanoi("A", "C", "B", hanoiProblem.readNumberOfDisk(),requiredStepsList);
@@ -31,6 +38,18 @@ public class HanoiProblem {
 
 	}
 	
+	/**
+	 * 
+	 * @param source
+	 * @param auxiliary
+	 * @param destination
+	 * @param numOfDisk
+	 * @param requiredStepsList
+	 * @return List<String>
+	 * 
+	 * 
+	 * 
+	 */
 	public List<String> towerOfHanoi(String source , String auxiliary , String destination , int numOfDisk,List<String> requiredStepsList){
 		
 		if(numOfDisk == 1){
@@ -50,6 +69,11 @@ public class HanoiProblem {
 		
 		return requiredStepsList;
 	}
+	
+	/**
+	 * 
+	 * @return number of disks
+	 */
 	private int readNumberOfDisk(){
 		
 		while(true){
