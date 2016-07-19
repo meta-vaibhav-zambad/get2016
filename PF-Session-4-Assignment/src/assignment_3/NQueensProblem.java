@@ -3,7 +3,7 @@
  * 
  * Date : 19 July 2016
  *
- * Aim : To return all the permutations of given string
+ * Aim : To return all the correct positions of queens in a chessboard such that they do not attack each other
  */
 package assignment_3;
 
