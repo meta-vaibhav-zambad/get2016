@@ -1,23 +1,24 @@
 /**
  * 
- */
+ * @author vaibhav Zambad
+ * 
+ * Date : 21 July 2016
+ * 
+ * Aim : to design console based survey system
+*/
 package assignment_1;
 
-import java.io.PrintWriter;
-
-/**
- * @author vaibhav
- *
- */
+//define number of users
 public class Users {
 	
 	ConsoleOperations consoleOperations = new ConsoleOperations();
 	
-	FileOperations fileOperations = new FileOperations();
-	
 	private int numberOfUsers;
 	
-	public void setUsers(){
+	/**
+	 * to set number of users 
+	 */
+	public void setNumberOfUsers(){
 		
 		try{
 			
@@ -29,10 +30,12 @@ public class Users {
 			System.out.println("Something went wrong"+ ex.getMessage());
 		}
 	}
-	
-	public int getUsers(){
+	/**
+	 * 
+	 * @return number of users
+	 */
+	public int getNumberOfUsers(){
 		
 		return numberOfUsers;
-	}
-	
+	}	
 }

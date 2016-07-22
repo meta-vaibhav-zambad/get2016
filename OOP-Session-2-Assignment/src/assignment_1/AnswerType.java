@@ -1,19 +1,32 @@
 /**
  * 
- */
+ * @author vaibhav Zambad
+ * 
+ * Date : 21 July 2016
+ * 
+ * Aim : to design console based survey system
+*/
 package assignment_1;
 
-/**
- * @author vaibhav
- *
- */
+
+
+// to define the answer type selected by user such as single type or multiple type
 public class AnswerType {
 	
+	// object of console operations class
 	ConsoleOperations consoleOperations = new ConsoleOperations();
 	
+	// object of validation class
 	Validations validations = new Validations();
 	
 	
+	/**
+	 * 
+	 * @param choices
+	 * @return user answer
+	 * 
+	 * to get single select answer given by user
+	 */
 	public String getSingleSelectAnswer(String choices){
 		
 		String userAnswer="";
@@ -37,6 +50,13 @@ public class AnswerType {
 
 	}
 	
+	/**
+	 * 
+	 * @param choices
+	 * @return user answer
+	 * 
+	 * to get multiple select answer given by user
+	 */
 	public String getMultiSelectAnswer(String choices){
 		
 		String userAnswer="";

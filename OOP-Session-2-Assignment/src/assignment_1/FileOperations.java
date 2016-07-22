@@ -1,22 +1,25 @@
 /**
  * 
- */
+ * @author vaibhav Zambad
+ * 
+ * Date : 21 July 2016
+ * 
+ * Aim : to design console based survey system
+*/
 package assignment_1;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * @author vaibhav
- *
- */
+
+// class for all the file operations required
 public class FileOperations {
 	
+	// objects to writer , read and print in file
 	private FileInputStream fileInputStream;
 	private BufferedReader bufferedReader;
 	private PrintWriter printWriter;
@@ -27,6 +30,7 @@ public class FileOperations {
 		
 		try{
 			
+			// initialized objects
 			fileInputStream = new FileInputStream("InputFile.txt");
 			bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
 			printWriter = new PrintWriter("User-Answers.txt");
@@ -37,7 +41,13 @@ public class FileOperations {
 		}
 	}
 	
-	public void setData(){
+	/**
+	 * 
+	 * @return List
+	 * 
+	 * to extract data from file
+	 */
+	public List<String> extractDataFromFile(){
 		
 		String strLine;
 		
@@ -55,33 +65,24 @@ public class FileOperations {
 			
 			System.out.println("Error Occured: "+ ex.getMessage());
 		}
-	}
-	
-	public List<String> getData(){
 		
 		return data;
 	}
 	
-	public void createNewFile(String fileName){
-		
-		try{
-			File file = new File(fileName);
-		
-			file.createNewFile();
-			
-			System.out.println("file created");
-			
-		}catch(Exception ex){
-			
-			System.out.println("Something went wrong: "+ex.getMessage());
-		}
-	}
-	
-	public void storeInFile(String userAnswers){
+	/**
+	 * 
+	 * @param userAnswersList
+	 * 
+	 * to store in file 
+	 */
+	public void storeInFile(List<String> userAnswersList){
 		
 		try{
 			
-			printWriter.println(userAnswers);
+			for(int i=0;i < userAnswersList.size();++i){
+				
+				printWriter.println("Participant "+(i+1)+","+userAnswersList.get(i));
+			}
 			
 		}catch(Exception ex){
 			
@@ -93,6 +94,4 @@ public class FileOperations {
 		}
 		
 	}
-	
-	
 }

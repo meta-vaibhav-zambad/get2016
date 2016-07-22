@@ -1,24 +1,34 @@
 /**
  * 
- */
+ * @author vaibhav Zambad
+ * 
+ * Date : 21 July 2016
+ * 
+ * Aim : to design console based survey system
+*/
 package assignment_1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/**
- * @author vaibhav
- *
- */
+
+// class to define all console based operations
 public class ConsoleOperations {
 	
+	// object to read input
 	private BufferedReader bufferedReader;
 	
 	public ConsoleOperations(){
 		
+		// initialized object
 		bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	}
 	
+	/**
+	 * 
+	 * @param message
+	 * @return positive integer
+	 */
 	public int getPositiveInteger(String message){
 		
 		int inputNumber = 0;
@@ -44,6 +54,11 @@ public class ConsoleOperations {
 		
 	}
 	
+	/**
+	 * 
+	 * @param message
+	 * @return string
+	 */
 	public String getString(String message){
 		
 		String inputString="";
@@ -64,6 +79,10 @@ public class ConsoleOperations {
 		
 	}
 	
+	/**
+	 * 
+	 * @return string
+	 */
 	public String getString(){
 		
 		String inputString="";
@@ -77,10 +96,5 @@ public class ConsoleOperations {
 		}
 		
 		return inputString;
-	}
-	
-	public void printMessage(String displayString){
-		
-		System.out.println(displayString);
 	}
 }

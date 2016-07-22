@@ -1,14 +1,24 @@
 /**
  * 
- */
+ * @author vaibhav Zambad
+ * 
+ * Date : 21 July 2016
+ * 
+ * Aim : to design console based survey system
+*/
 package assignment_1;
 
-/**
- * @author vaibhav
- *
- */
+// validation class to apply validations on user ansers
 public class Validations {
 	
+	/**
+	 * 
+	 * @param userInput
+	 * @param choices
+	 * @return boolean result
+	 * 
+	 * checks whether the user answer matches the given choices for single select
+	 */
 	public boolean validateUserInputForSingleSelect(String userInput,String choices){
 		
 		boolean result = false;
@@ -19,7 +29,7 @@ public class Validations {
 		
 			for(int i=0; i < choiceArray.length;++i){
 			
-				if(userInput.equals(choiceArray[i])){
+				if(userInput.trim().equals(choiceArray[i].trim())){
 					
 					result = true;
 					break;
@@ -33,6 +43,14 @@ public class Validations {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param userInput
+	 * @param choices
+	 * @return boolean result
+	 * 
+	 * checks whether the user answer matches the given choices for multi select
+	 */
 	public boolean validateUserInputForMultiSelect(String userInput , String choices){
 		
 		boolean result = true;
