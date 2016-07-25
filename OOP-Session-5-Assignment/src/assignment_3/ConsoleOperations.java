@@ -1,4 +1,4 @@
-package assignment;
+package assignment_3;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -22,7 +22,7 @@ public class ConsoleOperations {
 
 			inputNumber = Integer.parseInt(bufferedReader.readLine());
 
-			if(inputNumber != 1 && inputNumber != 2 ){
+			if(inputNumber <= 0){
 
 				inputNumber = getPositiveInteger(message);
 			}
@@ -64,6 +64,7 @@ public class ConsoleOperations {
 		try{
 
 			inputString = bufferedReader.readLine();
+			
 		}catch(Exception ex){
 
 			System.out.println("Something went wrong: "+ex.getMessage());
@@ -72,13 +73,16 @@ public class ConsoleOperations {
 		return inputString;
 	}
 	
-	public char getChar(){
+	public char getChar(String message){
 		
 		char inputChar='\0';
 		
 		try{
 			
+			System.out.println(message);
+			
 			inputChar = (char)bufferedReader.read();
+			
 		}catch(Exception ex){
 			
 			System.out.println("Something went wrong: "+ex.getMessage());
