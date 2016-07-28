@@ -1,0 +1,6 @@
+p,vaibhav1,2124589632,hello@gmail.com
+p,vaibhav2,4578956466,vaibhav2@gmail.com
+p,vaibhav3,457856951,vaibhav3@gmail.com
+o,metacube,4658956224,metacube@metacube.com
+o,google,5412032658,google@gmail.com
+o,microsoft,4512547895,microsoft@hotmail.com
