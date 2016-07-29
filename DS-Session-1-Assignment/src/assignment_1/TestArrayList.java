@@ -108,5 +108,11 @@ public class TestArrayList {
 		
 		assertEquals("Success" , true, arrayList.clearList());
 	}
+	
+	@Test
+	public void testSortList(){
+		
+		
+	}
 
 }

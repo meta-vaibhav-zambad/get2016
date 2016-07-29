@@ -4,12 +4,19 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
+// generic ArrayList class to support all operations related to list(generic parameter <E>)s 
 public class ArrayList<E> {
 
+	// a variable to define the size of list
 	private int size;
 
+	// an object variable for array
 	private Object[] array;
 
+	/** 
+	 * @param initialCapacity
+	 * Constructor to initialize the array list based on capacity given by user
+	 */
 	public ArrayList(int initialCapacity){
 
 		if(initialCapacity < 0){
@@ -20,13 +27,23 @@ public class ArrayList<E> {
 		this.array = new Object[initialCapacity];
 	}
 
+	/**
+	 * Constructor to initialize array list of size 10 
+	 */
 	public ArrayList(){
 
 		this.array = new Object[10];
 	}
 
+	/**
+	 * @param e
+	 * @return true if element is added
+	 * 
+	 * this method adds an element e(value) to list 
+	 */
 	public boolean add(E e){
 
+		// to ensure the size of list
 		ensureCapacity(size+1);
 
 		array[size++] = e;
@@ -34,12 +51,22 @@ public class ArrayList<E> {
 		return true;
 	}
 
+	/**
+	 * 
+	 * @param index
+	 * @param e
+	 * @return true if element is added 
+	 * 
+	 * this method adds the element e to a particular index 
+	 */
 	public boolean add(int index , E e){
 
+		// check for range if it is greater than -1 and less than size
 		checkForRange(index);
 
 		for(int i = index;i < size;++i){
 
+			// to ensure the size of list
 			ensureCapacity(size+1);
 
 			array[i+1] = array[i];
@@ -48,15 +75,23 @@ public class ArrayList<E> {
 
 		array[index] = e;
 
+		// increment size
 		size++;
 
 		return true;
 	}
 
 
-
+	/**
+	 * 
+	 * @param location
+	 * @return true if the element is removed
+	 * 
+	 * this method removes element at a particular position
+ 	 */
 	public boolean remove(int location){
-
+		
+		// check range of index
 		checkForRange(location);
 
 		for(int i = location+1 ; i < size ;++i){
@@ -70,11 +105,19 @@ public class ArrayList<E> {
 		return true;
 
 	}
-	
+
+	/**
+	 * 
+	 * @param e
+	 * @return true if element is removed
+	 * 
+	 * this method removes element given by user
+	 */
 	public boolean remove(E e){
 
 		int tempIndex = 0;
 
+		// check if element is present in array and store its index
 		for(int i=0;i < size;++i){
 
 			if(array[i] == e){
@@ -85,6 +128,7 @@ public class ArrayList<E> {
 			}
 		}
 
+		// remove and shift all elements of array
 		for(int i = tempIndex+1 ; i < size ;++i){
 
 			array[i-1] = array[i];
@@ -94,11 +138,17 @@ public class ArrayList<E> {
 
 		return true;
 	}
-
+	
+	/**
+	 * 
+	 * @param e
+	 * @return the index of value given by user else throw no such element exception
+	 */
 	public int getIndex(E e){
 
 		int tempIndex = 0 , flag = 2;
 
+		// check if element is present in array and store its index
 		for(int i=0;i < size; ++i){
 
 			if(array[i] == e){
@@ -113,25 +163,38 @@ public class ArrayList<E> {
 
 			throw new NoSuchElementException();
 		}
+		
+		// return index
 		return tempIndex;
 	}
-
+	
+	/**
+	 * 
+	 * @param location
+	 * @return element at a particular index
+	 */
 	@SuppressWarnings("unchecked")
 	public E getElement(int location){
 
-
+		// check if index is in range else throw IndexOutOfBounds exception
 		if(location > size-1 || location < 0){
 
-			throw new ArrayIndexOutOfBoundsException("location: "+location+","+"size: "+size);
+			throw new IndexOutOfBoundsException("location: "+location+","+"size: "+size);
 		}
 
 		return (E)array[location];
 	}
-
+	
+	/**
+	 * @param minCapacity
+	 * 
+	 * this method checks if the capacity is less and grows the capacity of array
+	 */
 	public void ensureCapacity(int minCapacity){
 
 		try{
 
+			// if capacity is less then grow the capacity 
 			if(minCapacity - array.length > 0){
 
 				growCapacity(minCapacity);
@@ -145,12 +208,21 @@ public class ArrayList<E> {
 
 	}
 
+	/**
+	 * @return size of array
+	 */
 	public int size(){
 
 		return size;
 
 	}
-
+	
+	/**
+	 * @param minCapacity
+	 * 
+	 * this method increases the capacity of array by making a new array with increased capacity
+	 * and transferring the old array into new one
+	 */
 	public void growCapacity(int minCapacity){
 
 		try{
@@ -166,7 +238,13 @@ public class ArrayList<E> {
 			System.out.println("Something went wrong: "+ex.getMessage());
 		}
 	}
-
+	
+	/**
+	 * 
+	 * @param index
+	 * 
+	 * This method checks the range of index
+	 */
 	public void checkForRange(int index){
 
 		if(index > size && index < 0){
@@ -177,84 +255,134 @@ public class ArrayList<E> {
 
 	}
 	
+	/**
+	 * this method reverses the array list 
+	 */
 	public void reverseList(){
 
 		int index = 0;
-		
+
 		Object[] reverseArray = new Object[size];
 		
+		// reversing the array
 		for(int i = size-1 ; i >=0 ;--i ){
-			
+
 			reverseArray[index++] = array[i];
-			
+
 		}
-		
+
+		// transferring the reversed array into original one
 		array = reverseArray;
 	}
-	
+
+	/**
+	 * this method sorts the array
+	 */
 	public void sort(){
 		
-		Object[] sortedArray = new Object[size];
+		// temporary array to store the original values
+		Object[] tempArray = new Object[size];
 		
-		Comparator c = null;
+		// comparator object to compare the elements 
+		Comparator<E> c = new Comparator<E>() {
+
+			// override compare method to compare two objects
+			@Override
+			public int compare(E arg0, E arg1) {
+
+				int compareValue = arg0.toString().compareTo(arg1.toString());
+
+				return compareValue;
+			}
+
+		};
 		
-		mergeSort(0 , size - 1, sortedArray, c);
-		
-		
+		// called merge sort to sort the array
+		mergeSort(0 , size - 1, tempArray, c);
+
+
 	}
-	
-	public void mergeSort(int low , int high , Object[] sortedArray , Comparator c){
-		
+
+	/**
+	 * 
+	 * @param low
+	 * @param high
+	 * @param sortedArray
+	 * @param c
+	 * 
+	 * merge sort algorithm is implemented here 
+	 * the whole array is divided here into two parts from 0 to mid and mid+1 to size 
+	 * each array is sorted recursively each time and merged to create a complete sorted array
+	 */
+	public void mergeSort(int low , int high , Object[] sortedArray , Comparator<E> c){
+
 		if(low < high){
-			
+
 			int mid = low + (high - low) / 2;
-			
+
 			mergeSort(low , mid , sortedArray , c);
-			
+
 			mergeSort(mid+1 , high , sortedArray , c);
-			
+
 			merge(low , mid , high , sortedArray , c);
 		}
-		
+
+	}
+
+	/**
+	 * 
+	 * @param low
+	 * @param mid
+	 * @param high
+	 * @param sortedArray
+	 * @param c
+	 * 
+	 * this method compares the elements of two arrays and add the element which is smaller in 
+	 * original array which makes original array sorted
+	 */
+	@SuppressWarnings("unchecked")
+	public void merge(int low , int mid , int high , Object[] sortedArray , Comparator<E> c){
+
+		for (int i = low; i <= high; i++) {
+
+			sortedArray[i] = array[i];
+		}
+
+		int i = low;
+		int j = mid + 1;
+		int k = low;
+
+		while (i <= mid && j <= high) {
+
+			if (c.compare((E)sortedArray[j], (E)sortedArray[i]) > 0 ) {
+
+				array[k] = sortedArray[i];
+				i++;
+
+			} else {
+
+				array[k] = sortedArray[j];
+				j++;
+			}
+			k++;
+		}
+
+		while (i <= mid) {
+			array[k] = sortedArray[i];
+			k++;
+			i++;
+		}
+
 	}
 	
-
-	public void merge(int low , int mid , int high , Object[] sortedArray , Comparator c){
-		
-		for (int i = low; i <= high; i++) {
-            sortedArray[i] = array[i];
-        }
-		
-        int i = low;
-        int j = mid + 1;
-        int k = low;
-        
-        while (i <= mid && j <= high) {
-        	
-            if (c.compare(sortedArray[j], sortedArray[i]) > 0 ) {
-            	
-                array[k] = sortedArray[i];
-                i++;
-                
-            } else {
-            	
-                array[k] = sortedArray[j];
-                j++;
-            }
-            k++;
-        }
-        while (i <= mid) {
-            array[k] = sortedArray[i];
-            k++;
-            i++;
-        }
- 
-    }
-
+	/**
+	 * @return true 
+	 * clears the complete array list by resetting the size to zero
+	 */
 	public boolean clearList(){
-		
+
 		size = 0;
-		
+
 		return true;
 	}
 }

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 public class LargestElement {
 
+	// entry point of program
 	public static void main(String[] args) {
 				
 		// object of BinarySearch 
@@ -23,14 +24,23 @@ public class LargestElement {
 
 	}
 	
+	/**
+	 * @param array
+	 * @return the third largest element of array
+	 * 
+	 * this method returns the third largest element of array
+	 */
 	public int findThirdLargestElement(int[] array){
 		
+		// variables 
 		int thirdLargestElement = 0,secondLargestElement = 0 , firstLargestElement = 0 , loopVariable = 0;
 		
 		try{
 			
 			while(loopVariable < array.length ){
 				
+				// if the element is greater than firstLargest then start the loop again
+				// set firstLargest to it
 				if(array[loopVariable] > firstLargestElement){
 					
 					firstLargestElement = array[loopVariable];
@@ -38,6 +48,8 @@ public class LargestElement {
 					loopVariable = -1;
 				}
 				
+				// if the element is greater than secondLargest and less than firstLargest then 
+				// set secondLargest to it
 				else if(array[loopVariable] < firstLargestElement && array[loopVariable] > secondLargestElement){
 					
 					secondLargestElement = array[loopVariable];
@@ -45,12 +57,15 @@ public class LargestElement {
 					loopVariable = -1;
 			 	}
 				
+				// but if the element is less than secondLargest and greater than thirdLargest then
+				// set thirdLargest to it
 				else if(array[loopVariable] < secondLargestElement && array[loopVariable] > thirdLargestElement){
 					
 					thirdLargestElement = array[loopVariable];
 
 				}
 				
+				// increment loop variable
 				loopVariable++;
 				
 			}

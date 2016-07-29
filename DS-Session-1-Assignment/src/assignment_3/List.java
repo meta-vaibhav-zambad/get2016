@@ -7,7 +7,14 @@ public final class List {
 		
 		SinglyLinkedList<String> singlyLinkedList= new SinglyLinkedList<String>();
 		
+		singlyLinkedList.add(0, "vaibhav1");
+		singlyLinkedList.add(1, "vaibhav2");
+		singlyLinkedList.add(2, "vaibhav3");
+		singlyLinkedList.add(3, "vaibhav4");
 		
+		singlyLinkedList.reverse();
+		
+		singlyLinkedList.print();
 
 	}
 

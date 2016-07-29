@@ -1,13 +1,20 @@
 package assignment_4;
 
+// class of node (an entity of doubly linked list)(Generic type)
 public class Node<E> {
 	
+	// generic variable to set node value
 	public E nodeValue;
 	
+	// pointer for next node
 	public Node<E> nextNode;
 	
+	// pointer for previous node
 	public Node<E> prevNode;
 	
+	/**
+	 * empty constructor for node
+	 */
 	public Node(){
 		
 		nodeValue = null;
@@ -17,6 +24,11 @@ public class Node<E> {
 		prevNode = null;
 	}
 	
+	/**
+	 * parameterized constructor to set the item for node
+	 * 
+	 * @param item
+	 */
 	public Node(E item){
 		
 		nodeValue = item;
@@ -24,6 +36,16 @@ public class Node<E> {
 		nextNode = null;
 		
 		prevNode = null;
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		
+		return nodeValue.toString();
 	}
 
 }
