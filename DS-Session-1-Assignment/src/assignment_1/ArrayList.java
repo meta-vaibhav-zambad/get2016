@@ -185,6 +185,18 @@ public class ArrayList<E> {
 		return (E)array[location];
 	}
 	
+	public boolean overwriteElement(int location,E newValue){
+		
+		if(location > size - 1 || location < 0){
+			
+			throw new IndexOutOfBoundsException("location: "+location+","+"size: "+size);
+		}
+		
+		array[location] = newValue;
+		
+		return true;
+	}
+	
 	/**
 	 * @param minCapacity
 	 * 

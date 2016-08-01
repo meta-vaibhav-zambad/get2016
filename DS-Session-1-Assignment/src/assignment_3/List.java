@@ -12,7 +12,9 @@ public final class List {
 		singlyLinkedList.add(2, "vaibhav3");
 		singlyLinkedList.add(3, "vaibhav4");
 		
-		singlyLinkedList.reverse();
+		singlyLinkedList.remove(3);
+		
+		//singlyLinkedList.reverse();
 		
 		singlyLinkedList.print();
 
