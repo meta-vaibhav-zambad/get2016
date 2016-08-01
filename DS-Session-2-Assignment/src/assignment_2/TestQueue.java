@@ -1,18 +1,17 @@
 /**
+ * @author vaibhav zambad
  * 
- */
+ * Date : 29 July 2016
+ * 
+ * Aim : To test the implemented queue
+*/
 package assignment_2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-/**
- * @author admin
- *
- */
 public class TestQueue {
 	
 	Queue<String> queue;
@@ -105,5 +104,4 @@ public class TestQueue {
 		assertEquals(0,queue.getSize());
 		
 	}
-
 }

@@ -1,6 +1,11 @@
 /**
+ * @author vaibhav zambad
  * 
- */
+ * Date : 29 July 2016
+ * 
+ * Aim : To test the implemented stack
+*/
+
 package assignment_1;
 
 import static org.junit.Assert.*;
@@ -8,10 +13,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author admin
- *
- */
 public class TestStack {
 	
 	Stack<String> stack ;

@@ -1,6 +1,10 @@
 /**
+ * @author vaibhav zambad
  * 
- */
+ * Date : 29 July 2016
+ * 
+ * Aim : To test the infix to postFix operation
+*/
 package assignment_1;
 
 import static org.junit.Assert.*;
@@ -8,10 +12,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author admin
- *
- */
 public class TestOperations {
 	
 	Operations operations;
