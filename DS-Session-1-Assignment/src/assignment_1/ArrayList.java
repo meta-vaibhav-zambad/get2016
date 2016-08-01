@@ -1,13 +1,20 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : To implement Array MergedList using array
+*/
 package assignment_1;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-// generic ArrayList class to support all operations related to list(generic parameter <E>)s 
+// generic ArrayList class to support all operations related to mergedList(generic parameter <E>)s 
 public class ArrayList<E> {
 
-	// a variable to define the size of list
+	// a variable to define the size of mergedList
 	private int size;
 
 	// an object variable for array
@@ -15,7 +22,7 @@ public class ArrayList<E> {
 
 	/** 
 	 * @param initialCapacity
-	 * Constructor to initialize the array list based on capacity given by user
+	 * Constructor to initialize the array mergedList based on capacity given by user
 	 */
 	public ArrayList(int initialCapacity){
 
@@ -28,7 +35,7 @@ public class ArrayList<E> {
 	}
 
 	/**
-	 * Constructor to initialize array list of size 10 
+	 * Constructor to initialize array mergedList of size 10 
 	 */
 	public ArrayList(){
 
@@ -39,11 +46,11 @@ public class ArrayList<E> {
 	 * @param e
 	 * @return true if element is added
 	 * 
-	 * this method adds an element e(value) to list 
+	 * this method adds an element e(value) to mergedList 
 	 */
 	public boolean add(E e){
 
-		// to ensure the size of list
+		// to ensure the size of mergedList
 		ensureCapacity(size+1);
 
 		array[size++] = e;
@@ -66,7 +73,7 @@ public class ArrayList<E> {
 
 		for(int i = index;i < size;++i){
 
-			// to ensure the size of list
+			// to ensure the size of mergedList
 			ensureCapacity(size+1);
 
 			array[i+1] = array[i];
@@ -185,6 +192,7 @@ public class ArrayList<E> {
 		return (E)array[location];
 	}
 	
+
 	public boolean overwriteElement(int location,E newValue){
 		
 		if(location > size - 1 || location < 0){
@@ -268,7 +276,7 @@ public class ArrayList<E> {
 	}
 	
 	/**
-	 * this method reverses the array list 
+	 * this method reverses the array mergedList 
 	 */
 	public void reverseList(){
 
@@ -389,7 +397,7 @@ public class ArrayList<E> {
 	
 	/**
 	 * @return true 
-	 * clears the complete array list by resetting the size to zero
+	 * clears the complete array mergedList by resetting the size to zero
 	 */
 	public boolean clearList(){
 

@@ -9,6 +9,8 @@ import org.junit.Test;
  * @author vaibhav zambad
  * 
  * Date : 28 July 2016
+ * 
+ * Aim : to test binary search class
  *
  */
 public class TestBinarySearch {

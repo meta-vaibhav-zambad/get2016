@@ -1,11 +1,18 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : To implement Doubly LinkedList
+*/
 package assignment_4;
 
 import java.util.NoSuchElementException;
 
-// class to implement doubly linked list
+// class to implement doubly linked mergedList
 public class DoublyLinkedList<E> {
 
-	// start node for linked list
+	// start node for linked mergedList
 	Node<E> startNode;
 
 	// set initial size to zero
@@ -25,7 +32,7 @@ public class DoublyLinkedList<E> {
 	 * @param item
 	 * @return true if the element is added
 	 * 
-	 *  this method adds the element in doublylinked list
+	 *  this method adds the element in doublylinked mergedList
 	 */	
 	public boolean add(int index, E item){
 
@@ -121,7 +128,7 @@ public class DoublyLinkedList<E> {
 
 		if(startNode == null){
 
-			new IndexOutOfBoundsException("List is empty");
+			new IndexOutOfBoundsException("MergedList is empty");
 		}
 
 
@@ -141,7 +148,7 @@ public class DoublyLinkedList<E> {
 
 			if(tempNextNode == null){
 
-				throw new NoSuchElementException("value not present in list");
+				throw new NoSuchElementException("value not present in mergedList");
 			}
 
 			else if(tempNextNode == startNode){
@@ -192,7 +199,7 @@ public class DoublyLinkedList<E> {
 
 		if(startNode == null){
 
-			throw new IndexOutOfBoundsException("List is empty");
+			throw new IndexOutOfBoundsException("MergedList is empty");
 		}
 
 		else if(index > size - 1){
@@ -264,7 +271,7 @@ public class DoublyLinkedList<E> {
 
 		if(startNode == null){
 
-			throw new IllegalArgumentException("List is empty");
+			throw new IllegalArgumentException("MergedList is empty");
 		}
 
 		Node<E> tempNode = startNode;
@@ -282,7 +289,7 @@ public class DoublyLinkedList<E> {
 	}
 	
 	/**
-	 * this method reverses the linked list
+	 * this method reverses the linked mergedList
 	 */
 	public void reverse(){
 		
@@ -306,7 +313,7 @@ public class DoublyLinkedList<E> {
 	}
 	
 	/**
-	 * print the whole doubly linked list
+	 * print the whole doubly linked mergedList
 	 */
 	public void print(){
 
@@ -322,7 +329,7 @@ public class DoublyLinkedList<E> {
 	}
 
 	/** 
-	 * @return size of doubly linked list
+	 * @return size of doubly linked mergedList
 	 */
 	public int size(){
 

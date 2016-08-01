@@ -1,3 +1,10 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : To test the ArrayList class
+*/
 package assignment_1;
 
 import static org.junit.Assert.*;
@@ -7,16 +14,23 @@ import org.junit.Test;
 
 public class TestArrayList {
 	
-	ArrayList<String> arrayList , reverseArraylist;
+	// object of ArrayList class
+	ArrayList<String> arrayList , sortedArrayList ;
 
 	@Before
 	public void setUp() throws Exception {
 		
+		// initializing the object
 		arrayList = new ArrayList<String>();
+		
+		sortedArrayList = new ArrayList<String>();
 	}
 
+	/**
+	 * test method for adding element in array mergedList
+	 */
 	@Test
-	public void testAddE() {
+	public void testAddElement() {
 		
 		assertEquals("Success",true,arrayList.add("hello"));
 		assertEquals("Success",true,arrayList.add("my"));
@@ -33,8 +47,11 @@ public class TestArrayList {
 		
 	}
 
+	/**
+	 * test method for adding element in array mergedList at a particular index
+	 */
 	@Test
-	public void testAddIntE() {
+	public void testAddElementAtIndex() {
 		
 		assertEquals("Success",true,arrayList.add(0,"hello"));
 		assertEquals("Success",true,arrayList.add(1,"my"));
@@ -48,9 +65,12 @@ public class TestArrayList {
 		assertEquals("Success",true,arrayList.add(9,"end"));
 		
 	}
-
+	
+	/**
+	 * Test method to remove element at a particular index
+	 */
 	@Test
-	public void testRemoveInt() {
+	public void testRemoveElementByIndex() {
 		
 		assertEquals("Success",true,arrayList.remove(6));
 		assertEquals("Success",true,arrayList.remove(7));
@@ -59,8 +79,11 @@ public class TestArrayList {
 		
 	}
 
+	/**
+	 * Test method to remove element by value
+	 */
 	@Test
-	public void testRemoveE() {
+	public void testRemoveElementByValue() {
 		
 		assertEquals("Success",true,arrayList.remove("vaibhav"));
 		assertEquals("Success",true,arrayList.remove("hello"));
@@ -68,9 +91,12 @@ public class TestArrayList {
 		assertEquals("Success",true,arrayList.remove("my"));
 		
 	}
-
+	
+	/**
+	 * test method to get index of elements present in mergedList 
+	 */
 	@Test
-	public void testGetIndex() {
+	public void testGetIndexOfElement() {
 		
 		assertEquals("Success",true,arrayList.add("people"));
 		assertEquals("Success",true,arrayList.add("hello"));
@@ -79,15 +105,21 @@ public class TestArrayList {
 		
 	}
 
+	/**
+	 * test method to get elements present at a particular index
+	 */
 	@Test
-	public void testGetElement() {
+	public void testGetElementAtIndex() {
 		
 		assertEquals("Success",true,arrayList.add("hello"));
 		assertEquals("Success",true,arrayList.add("vaibhav"));
 		assertEquals("hello",arrayList.getElement(0));
 		assertEquals("vaibhav",arrayList.getElement(1));
 	}
-	
+		
+	/**
+	 * Test method to reverse the mergedList
+	 */
 	@Test
 	public void testReverseList(){
 		
@@ -102,15 +134,38 @@ public class TestArrayList {
 		assertEquals("hello",arrayList.getElement(2));
 		
 	}
-
+	
+	/**
+	 * test method to clear the mergedList
+	 */
 	@Test
 	public void testClearList() {
 		
 		assertEquals("Success" , true, arrayList.clearList());
 	}
 	
+	/**
+	 * test method to sort the mergedList
+	 */
 	@Test
 	public void testSortList(){
+		
+		sortedArrayList.add("abc");
+		sortedArrayList.add("bce");
+		sortedArrayList.add("cde");
+		sortedArrayList.add("def");
+		
+		assertEquals("Success",true,arrayList.add("def"));
+		assertEquals("Success",true,arrayList.add("cde"));
+		assertEquals("Success",true,arrayList.add("bce"));
+		assertEquals("Success",true,arrayList.add("abc"));
+		
+		arrayList.sort();
+		
+		assertEquals("abc",arrayList.getElement(0));
+		assertEquals("bce",arrayList.getElement(1));
+		assertEquals("cde",arrayList.getElement(2));
+		assertEquals("def",arrayList.getElement(3));
 		
 		
 	}

@@ -1,8 +1,16 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : To implement Singly LinkedList
+*/
+
 package assignment_3;
 
 import java.util.NoSuchElementException;
 
-// class to implement singly linked list (Generic parameter E)
+// class to implement singly linked mergedList (Generic parameter E)
 public class SinglyLinkedList<E> {
 
 	// a start node
@@ -19,6 +27,11 @@ public class SinglyLinkedList<E> {
 
 	}
 
+	/**
+	 * 
+	 * @param item
+	 * @return true after the element is added
+	 */
 	public boolean add(E item){
 
 		Node<E> newNode = new Node<E>(item);
@@ -66,7 +79,7 @@ public class SinglyLinkedList<E> {
 		// a temporary position
 		int tempPosition = 0;
 
-		// if the list is empty
+		// if the mergedList is empty
 		if(startNode == null){
 
 			startNode = newNode;
@@ -113,7 +126,7 @@ public class SinglyLinkedList<E> {
 	 */
 	public boolean remove(E value){
 
-		// if list is empty
+		// if mergedList is empty
 		if(startNode == null){
 
 			throw new NoSuchElementException();
@@ -213,7 +226,7 @@ public class SinglyLinkedList<E> {
 	}
 
 	/**
-	 * this method reverses the whole linked list
+	 * this method reverses the whole linked mergedList
 	 */
 	public void reverse(){
 
@@ -264,7 +277,7 @@ public class SinglyLinkedList<E> {
 	}
 
 	/**
-	 * print the whole linked list
+	 * print the whole linked mergedList
 	 */
 	public void print(){
 

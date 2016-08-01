@@ -1,6 +1,14 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : To implement Doubly LinkedList
+*/
+
 package assignment_4;
 
-// class of node (an entity of doubly linked list)(Generic type)
+// class of node (an entity of doubly linked mergedList)(Generic type)
 public class Node<E> {
 	
 	// generic variable to set node value

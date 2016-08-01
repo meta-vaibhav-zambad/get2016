@@ -1,3 +1,12 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : to display third largest element in an array 
+ * with using only single loop and without sorting.
+*/
+
 package assignment_6;
 
 import java.io.BufferedReader;

@@ -1,3 +1,10 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : To test the LargestElement class
+*/
 package assignment_6;
 
 import static org.junit.Assert.*;
@@ -10,6 +17,12 @@ public class TestLargestElement {
 	LargestElement largestElement;
 	
 	int[] array1,array2,array3;
+	
+	/**
+	 * initializing arrays
+	 * 
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		
@@ -21,7 +34,10 @@ public class TestLargestElement {
 		
 		array3 = new int[]{1,2,3,4,5,6,7,8,9,10};
 	}
-
+	
+	/**
+	 * test method for third largest element
+	 */
 	@Test
 	public void test() {
 		

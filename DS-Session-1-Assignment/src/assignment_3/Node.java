@@ -1,6 +1,15 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 28 July 2016
+ * 
+ * Aim : To implement Singly LinkedList
+*/
+
+
 package assignment_3;
 
-// Node class to define a node in Linked List
+// Node class to define a node in Linked MergedList
 public class Node<E> {
 	
 	// node value
