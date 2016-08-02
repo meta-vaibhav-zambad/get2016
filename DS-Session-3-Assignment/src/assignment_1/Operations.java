@@ -23,8 +23,6 @@ public class Operations {
 
 			int choice = 0;
 
-			int userInput = 0;
-			
 			char userPermission = '\0';
 
 			do{
@@ -32,37 +30,57 @@ public class Operations {
 				System.out.println("1. Insert in binary tree");
 
 				System.out.println("2. Display preorder traversal");
-
-				System.out.println("3. Exit");
-
+				
 				choice = operations.getUserIntegerInput("Please enter a valid choice");
 
 				switch(choice){
 
 				case 1:
 
-					userInput = operations.getUserIntegerInput("Please enter an element to add in tree");
-					rootNode = binaryTree.insert(rootNode, userInput);
+					int elementForRoot = operations.getUserIntegerInput("Please enter an element for "
+							+ "root of tree");
+
+					int elementForLeftOfRoot = operations.getUserIntegerInput("Please enter an element "
+							+ "for node to left of root");
+
+					int elementForRightOfRoot = operations.getUserIntegerInput("Please enter an element "
+							+ "for node to right of root");
+
+					rootNode = binaryTree.insertRoot(rootNode, elementForRoot, elementForLeftOfRoot, elementForRightOfRoot);
+
+					char addAnother = 'y';
+
+					while(addAnother == 'y' || addAnother == 'Y'){
+
+						int elementForLeft = operations.getUserIntegerInput("Please enter an element "
+								+ "for left node");
+
+						int elementForRight = operations.getUserIntegerInput("Please enter an element "
+								+ "for right node");
+
+						rootNode = binaryTree.insert(rootNode, elementForLeft, elementForRight);
+
+						addAnother = operations.getUserStringInput("Please enter Y or y to add"
+								+ " elements again").charAt(0);
+					}
+
 					break;
 
 				case 2:
 
-					binaryTree.preorder(rootNode);
+					operations.preorder(rootNode);
 					break;
-
-				case 3:
-
-					System.exit(0);
-
+					
+					
 				default:
 
 					System.out.println("Invalid Choice");
 				}
-				
+
 				userPermission = operations.getUserStringInput("Press Y or y to continue").charAt(0);
-			
+
 			}while(userPermission == 'y' || userPermission =='Y');
-			
+
 
 		}catch(Exception ex){
 
@@ -73,7 +91,7 @@ public class Operations {
 			try{
 
 				operations.bufferedReader.close();
-				
+
 				System.out.println("Program Ended");
 
 			}catch(Exception ex){
@@ -82,6 +100,25 @@ public class Operations {
 			}
 		}
 
+	}
+
+	public void preorder(Node<Integer> rootNode){
+
+		try{
+
+			if(rootNode != null){
+
+				System.out.println(rootNode.nodeValue);
+
+				preorder(rootNode.left);
+
+				preorder(rootNode.right);
+			}
+
+		}catch(Exception ex){
+
+			System.out.println("Something went wrong: "+ex.getMessage());
+		}
 	}
 
 	public int getUserIntegerInput(String message){
