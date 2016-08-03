@@ -14,16 +14,22 @@ public class BinaryTree<E> {
 	// deciding factor for insertion to left or right node
 	int size;
 	
+<<<<<<< HEAD
 	/**
 	 * constructor for binary tree
 	 */
 	public BinaryTree(){
 
 		// initialized size to 1
+=======
+	public BinaryTree(){
+
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 		size = 1;
 		
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * This method inserts node to root and to left and right of node
 	 * 
@@ -33,6 +39,8 @@ public class BinaryTree<E> {
 	 * @param elementForRightOfRoot
 	 * @return root node
 	 */
+=======
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 	public Node<E> insertRoot(Node<E> rootNode , E elementForRoot , E elementForLeftOfRoot , 
 			E elementForRightOfRoot){
 		
@@ -54,6 +62,7 @@ public class BinaryTree<E> {
 		return rootNode;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * This method starts inserting nodes from level 2 of binary tree
 	 * 
@@ -62,12 +71,17 @@ public class BinaryTree<E> {
 	 * @param elementForRight
 	 * @return root node 
 	 */
+=======
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 	public Node<E> insert(Node<E> rootNode , E elementForLeft , E elementForRight){
 
 		try{
 			
+<<<<<<< HEAD
 			// if left and right of node both are null then insert to left and right at the same time
 			// increment size variable
+=======
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 			if(rootNode.left == null && rootNode.right == null){
 				
 				rootNode.left = new Node<E>();
@@ -81,10 +95,15 @@ public class BinaryTree<E> {
 				size++;
 				
 			}
+<<<<<<< HEAD
 			
 			else{
 				
 				// if size is even then insert to left node
+=======
+			else{
+				
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 				if(size % 2 == 0){
 
 					rootNode.left = insert(rootNode.left , elementForLeft , elementForRight);

@@ -9,6 +9,8 @@ package assignment_3;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import assignment_1.BinaryTree;
+import assignment_1.Node;
 
 import assignment_1.BinaryTree;
 import assignment_1.Node;
@@ -38,7 +40,10 @@ public class Operations {
 			// variable for user choice
 			int choice = 0;
 
+<<<<<<< HEAD
 			// variable for user permission to continue or not
+=======
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 			char userPermission = '\0';
 
 			do{
@@ -55,6 +60,7 @@ public class Operations {
 				// insert elements in the tree
 				case 1:
 
+<<<<<<< HEAD
 					rootNode = operations.getUserInputForTree(rootNode);
 
 					break;
@@ -66,12 +72,51 @@ public class Operations {
 					break;
 
 					// for invalid choice	
+=======
+					int elementForRoot = operations.getUserIntegerInput("Please enter an element for "
+							+ "root of tree");
+
+					int elementForLeftOfRoot = operations.getUserIntegerInput("Please enter an element "
+							+ "for node to left of root");
+
+					int elementForRightOfRoot = operations.getUserIntegerInput("Please enter an element "
+							+ "for node to right of root");
+
+					rootNode = binaryTree.insertRoot(rootNode, elementForRoot, elementForLeftOfRoot, elementForRightOfRoot);
+
+					char addAnother = 'y';
+
+					while(addAnother == 'y' || addAnother == 'Y'){
+
+						int elementForLeft = operations.getUserIntegerInput("Please enter an element "
+								+ "for left node");
+
+						int elementForRight = operations.getUserIntegerInput("Please enter an element "
+								+ "for right node");
+
+						rootNode = binaryTree.insert(rootNode, elementForLeft, elementForRight);
+
+						addAnother = operations.getUserStringInput("Please enter Y or y to add"
+								+ " elements again").charAt(0);
+					}
+
+					break;
+
+				case 2:
+
+					operations.postOrder(rootNode);
+					break;
+
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 				default:
 
 					System.out.println("Invalid Choice");
 				}
 
+<<<<<<< HEAD
 				// taking user permission to continue or not
+=======
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 				userPermission = operations.getUserStringInput("Press Y or y to continue").charAt(0);
 
 			}while(userPermission == 'y' || userPermission =='Y');
@@ -98,6 +143,7 @@ public class Operations {
 
 	}
 
+<<<<<<< HEAD
 	/**
 	 * This method take user input to insert nodes in tree
 	 * 
@@ -203,6 +249,20 @@ public class Operations {
 	 * @param message
 	 * @return user input (integer)
 	 */
+=======
+	public void postOrder(Node<Integer> rootNode){
+
+		if(rootNode != null){
+
+			postOrder(rootNode.left);
+
+			postOrder(rootNode.right);
+
+			System.out.println(rootNode.nodeValue);
+		}
+	}
+
+>>>>>>> a8f87b82a5ddd141510c8755ce191d015bcf03a6
 	public int getUserIntegerInput(String message){
 
 		// variable for user input
