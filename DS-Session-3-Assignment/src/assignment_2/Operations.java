@@ -3,17 +3,20 @@
  * 
  * Date : 02-August-2016
  * 
- * Aim : To traverse a binary tree in preOrder and print the nodes as they are traversed.
+ * Aim : To find if 2 given trees are mirror similar trees or not.
  */
-package assignment_1;
+package assignment_2;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-// class for operations to be performed on binary tree
+import assignment_1.BinaryTree;
+import assignment_1.Node;
+
+// class for operations on binary trees
 public class Operations {
 
-	// buffered reader object for input and output
+	// buffered reader object for taking input
 	BufferedReader bufferedReader;
 
 	/**
@@ -24,15 +27,19 @@ public class Operations {
 		bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	}
 	
-	// entry point of program
+	// entry point for program
 	public static void main(String[] args) {
-		
+
 		Operations operations = new Operations();
 
 		try{
-
-			Node<Integer> rootNode = null;
 			
+			// variable for root node of tree 1
+			Node<Integer> rootNodeForTree1 = null;
+
+			// variable for root node of tree 2
+			Node<Integer> rootNodeForTree2 = null;
+
 			// variable for user choice
 			int choice = 0;
 
@@ -40,36 +47,52 @@ public class Operations {
 			char userPermission = '\0';
 
 			do{
-				
-				// printing choices
-				System.out.println("1. Insert in binary tree");
 
-				System.out.println("2. Display preorder traversal");
-				
+				// printing choices
+				System.out.println("1. Insert in first binary tree");
+
+				System.out.println("2. Insert in second binary tree");
+
+				System.out.println("3. Check if trees are mirror image of each other");
+
 				choice = operations.getUserIntegerInput("Please enter a valid choice");
 
 				switch(choice){
-				
-				// insert elements in the tree
+
 				case 1:
 					
-					System.out.println("Press -1 for null element");
-					rootNode = operations.getUserInputForTree(rootNode);
+					// insert elements in the first tree
+					rootNodeForTree1 = operations.getUserInputForTree(rootNodeForTree1);
 					
 					break;
-					
-				// display preOrder of binary tree
+
 				case 2:
+
+					// insert elements in the second tree
+					rootNodeForTree2 = operations.getUserInputForTree(rootNodeForTree2);
 					
-					operations.preorder(rootNode);
 					break;
-					
-				// for invalid choice	
+
+				case 3:
+
+					// variable to store result if mirror trees or not
+					boolean result = operations.areMirrorTrees(rootNodeForTree1 , rootNodeForTree2);
+
+					if(result == true){
+
+						System.out.println("Yes , trees are mirror images of each other");
+					}
+					else{
+
+						System.out.println("No , trees are not mirror images of each other");
+					}
+					break;
+
 				default:
 
 					System.out.println("Invalid Choice");
 				}
-				
+
 				// taking user permission to continue or not
 				userPermission = operations.getUserStringInput("Press Y or y to continue").charAt(0);
 
@@ -83,7 +106,7 @@ public class Operations {
 		}finally{
 
 			try{
-				
+
 				// closing the stream
 				operations.bufferedReader.close();
 
@@ -95,6 +118,37 @@ public class Operations {
 			}
 		}
 
+	}
+	
+	/**
+	 * This method checks whether the trees are mirror trees or not by recursion 
+	 * Root node is replaced by rootNode.left for first tree and rootNode.right for second tree
+	 * Again root node is replaced by rootNode.right for first tree and rootNode.left for second tree
+	 * 
+	 * @param rootNodeForTree1
+	 * @param rootNodeForTree2
+	 * @return true if mirror trees else return false
+	 */
+	public boolean areMirrorTrees(Node<Integer> rootNodeForTree1 , Node<Integer> rootNodeForTree2){
+
+		if(rootNodeForTree1 == null && rootNodeForTree2 == null){
+
+			return true;
+		}
+
+		if(rootNodeForTree1.nodeValue != rootNodeForTree2.nodeValue){
+
+			return false;
+		}
+
+		if( (rootNodeForTree1 == null && rootNodeForTree2 != null) 
+				|| rootNodeForTree2 == null && rootNodeForTree1 != null){
+
+			return false;
+		}
+
+		return areMirrorTrees(rootNodeForTree1.left, rootNodeForTree2.right) && 
+				areMirrorTrees(rootNodeForTree1.right, rootNodeForTree2.left);
 	}
 	
 	/**
@@ -163,38 +217,12 @@ public class Operations {
 
 			// taking user permission to add another left and right node
 			addAnother = getUserStringInput("Please enter Y or y to add"
-					+ " elements further").charAt(0);
+					+ " elements futher").charAt(0);
 		}
 		
 		return rootNode;
 	}
 
-	/**
-	 * This method traverses the tree in preOrder 
-	 * that is node , left and right 
-	 * 
-	 * @param rootNode
-	 */
-	public void preorder(Node<Integer> rootNode){
-
-		try{
-			
-			// do traversal only if root node is not null
-			if(rootNode != null){
-
-				System.out.println(rootNode.nodeValue);
-
-				preorder(rootNode.left);
-
-				preorder(rootNode.right);
-			}
-
-		}catch(Exception ex){
-
-			System.out.println("Something went wrong: "+ex.getMessage());
-		}
-	}
-	
 	/**
 	 * This method returns the user input for integer values
 	 * 
@@ -222,7 +250,7 @@ public class Operations {
 
 		return userInput;
 	}
-
+	
 	/**
 	 * This method returns the user input for string variables
 	 * 
