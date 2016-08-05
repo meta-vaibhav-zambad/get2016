@@ -185,7 +185,8 @@ public class RoomAllotment {
 			getUserIntegerInput(message);
 
 		}
-
+		
+		// return user input 
 		return userInput;
 	}
 }
