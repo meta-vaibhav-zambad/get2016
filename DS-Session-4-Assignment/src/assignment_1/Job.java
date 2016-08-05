@@ -1,15 +1,18 @@
 package assignment_1;
 
-class Task
+class Job
 {
-    String job;
     int priority;
  
     /** Constructor **/
-    public Task(String job, int priority)
+    public Job(int priority)
     {
-        this.job = job;
         this.priority = priority; 
+    }
+    
+    public int getJobPriority(){
+    	
+    	return this.priority;
     }
     /*
      * (non-Javadoc)
@@ -17,6 +20,6 @@ class Task
      */
     public String toString() 
     {
-        return "Job Name : "+ job +"\nPriority : "+ priority;
+        return "priority : "+ priority;
     }
 }
