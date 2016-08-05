@@ -1,5 +1,6 @@
 package assignment_1;
 
+<<<<<<< HEAD
 // class to define job
 class Job
 {
@@ -23,12 +24,33 @@ class Job
     	return this.priority;
     }
     
+=======
+class Job
+{
+    int priority;
+ 
+    /** Constructor **/
+    public Job(int priority)
+    {
+        this.priority = priority; 
+    }
+    
+    public int getJobPriority(){
+    	
+    	return this.priority;
+    }
+>>>>>>> 99828929f97313a6311c9a7fe05d85439724d9b5
     /*
      * (non-Javadoc)
      * @see java.lang.Object#toString()
      */
+<<<<<<< HEAD
     public String toString() {
     	
+=======
+    public String toString() 
+    {
+>>>>>>> 99828929f97313a6311c9a7fe05d85439724d9b5
         return "priority : "+ priority;
     }
 }
