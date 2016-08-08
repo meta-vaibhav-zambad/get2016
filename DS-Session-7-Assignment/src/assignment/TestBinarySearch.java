@@ -1,6 +1,11 @@
 /**
+ * @author vaibhav zambad
  * 
- */
+ * Date : 05 August 2016
+ * 
+ * Aim :  Write a program the binary search function and its loop invariants in a way 
+ * so that it will always find the leftmost occurrence of x in the array
+*/
 package assignment;
 
 import static org.junit.Assert.*;
@@ -8,10 +13,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author vaibhav
- *
- */
+
 public class TestBinarySearch {
 
 	BinarySearch binarySearch;
