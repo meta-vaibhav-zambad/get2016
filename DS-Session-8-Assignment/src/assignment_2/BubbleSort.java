@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @author vaibhav zambad
  * 
@@ -18,6 +19,13 @@ public class BubbleSort {
 	 * @return sorted array
 	 */
 	public int[] doBubbleSort(int[] array){
+=======
+package assignment_2;
+
+public class BubbleSort {
+
+	public int[] bubbleSort(int[] array){
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 
 		for(int outerLoopVariable = 0 ; outerLoopVariable < array.length ; ++outerLoopVariable){
 

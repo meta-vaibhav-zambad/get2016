@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @author vaibhav zambad
  * 
@@ -20,6 +21,16 @@ public class Node {
 	/**
 	 * constructor to initialize values to default
 	 */
+=======
+package assignment_1;
+
+public class Node {
+	
+	public int nodeValue;
+	
+	public Node left , right;
+	
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public Node(){
 		
 		nodeValue = 0;
@@ -30,11 +41,14 @@ public class Node {
 		
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Parameterized constructor to initialize node value of node 
 	 * and others to null
 	 * @param element
 	 */
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public Node(int element){
 		
 		nodeValue = element;
@@ -44,10 +58,13 @@ public class Node {
 		right = null;
 	}
 	
+<<<<<<< HEAD
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public String toString(){
 		
 		return String.valueOf(nodeValue);

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @author vaibhav zambad
  * 
@@ -6,6 +7,8 @@
  * Aim :  Write a sorting system, which takes input from user and provide a sorted list. 
  * Here User could choose if he want to go with Comparison Sorting Or Linear Sorting.
 */
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 package assignment_2;
 
 import java.io.BufferedReader;
@@ -13,38 +16,56 @@ import java.io.InputStreamReader;
 
 public class SortingSystem {
 
+<<<<<<< HEAD
 	// buffered reader object for input stream
 	BufferedReader bufferedReader = null;
 
 	/**
 	 * Constructor to initialize buffered reader object
 	 */
+=======
+	BufferedReader bufferedReader = null;
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public SortingSystem(){
 
 		bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 	}
 
+<<<<<<< HEAD
 	// entry method of program
 	public static void main(String[] args){
 
 		// variable to not to end program
+=======
+	public static void main(String[] args){
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		boolean flagNotToEndProgram = true;
 
 		while(flagNotToEndProgram){
 
+<<<<<<< HEAD
 			// object of sorting system
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 			SortingSystem sortingSystem = new SortingSystem();
 
 			try{
 
+<<<<<<< HEAD
 				// variable for user permission
 				char userPermission = '\0';
+=======
+				int userPermission = '\0';
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 
 				System.out.println("Welcome to V Sorting System");
 
 				do{
 
+<<<<<<< HEAD
 					// variable for count of elements in array
 					int countOfArray = sortingSystem.readPositiveInteger("Please enter a valid count of array");
 
@@ -55,25 +76,44 @@ public class SortingSystem {
 					array = sortingSystem.readArray(countOfArray);
 
 					// display choices
+=======
+					int countOfArray = sortingSystem.readPositiveInteger("Please enter a valid count of array");
+
+					int[] array = new int[countOfArray];
+
+					array = sortingSystem.readArray(countOfArray);
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 					System.out.println("1. Comparison Sorting");
 
 					System.out.println("2. Linear Sorting");
 
+<<<<<<< HEAD
 					// variable for user choice
 					int userChoice = sortingSystem.readPositiveInteger("Please enter a valid choice");
 
+=======
+					int userChoice = sortingSystem.readPositiveInteger("Please enter a valid choice");
+					
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 					System.out.println("Sorted Order");
 
 					switch(userChoice){
 
+<<<<<<< HEAD
 					// comparison sorting
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 					case 1:
 
 						sortingSystem.selectSortingTechniqueForComparisonSorting(array);
 
 						break;
 
+<<<<<<< HEAD
 						// linear sorting
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 					case 2:
 
 						sortingSystem.selectSortingTechniqueForLinearSorting(array);
@@ -85,6 +125,7 @@ public class SortingSystem {
 						System.out.println("invalid choice");
 					}
 
+<<<<<<< HEAD
 					// take permission from user to continue or not
 					userPermission = sortingSystem.getUserStringInput("Press y or Y to continue").charAt(0);
 
@@ -107,12 +148,35 @@ public class SortingSystem {
 
 				}catch(Exception ex){
 
+=======
+					userPermission = sortingSystem.getUserStringInput("Press y or Y to continue").charAt(0);
+
+				}while(userPermission == 'y' || userPermission == 'Y');
+				
+				System.out.println("Program Ended");
+				
+				flagNotToEndProgram = false;
+
+			}catch(Exception ex){
+				
+				System.out.println("Something went wrong: "+ex.getMessage());
+				
+			}finally{
+				
+				try{
+					
+					sortingSystem.bufferedReader.close();
+					
+				}catch(Exception ex){
+					
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 					System.out.println("Something went wrong: "+ex.getMessage());
 				}
 			}
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Method to select sorting technique for comparison sorting
 	 * @param array
@@ -120,10 +184,15 @@ public class SortingSystem {
 	private void selectSortingTechniqueForComparisonSorting(int[] array){
 
 		// if array length is less than or equal to 10 then do bubble sort
+=======
+	private void selectSortingTechniqueForComparisonSorting(int[] array){
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		if(array.length <= 10){
 
 			BubbleSort bubbleSort = new BubbleSort();
 
+<<<<<<< HEAD
 			bubbleSort.doBubbleSort(array);
 
 			System.out.println("System has used Bubble Sort technique and "
@@ -131,10 +200,20 @@ public class SortingSystem {
 		}
 		
 		// else do quick sort
+=======
+			bubbleSort.bubbleSort(array);
+
+			for(int loopVariable = 0 ; loopVariable < array.length ; ++loopVariable){
+
+				System.out.println(array[loopVariable]);
+			}
+		}
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		else{
 
 			QuickSort quickSort = new QuickSort();
 
+<<<<<<< HEAD
 			quickSort.doQuickSort(array, 0, array.length-1);
 
 			System.out.println("System has used Quick Sort technique and "
@@ -153,6 +232,17 @@ public class SortingSystem {
 	 * Method to select sorting technique for linear sorting
 	 * @param array
 	 */
+=======
+			quickSort.quickSort(array, 0, array.length-1);
+
+			for(int loopVariable = 0 ; loopVariable < array.length ; ++loopVariable){
+
+				System.out.println(array[loopVariable]);
+			}
+		}
+	}
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	private void selectSortingTechniqueForLinearSorting(int[] array){
 
 		int maxCountOfDigits = 0 ;
@@ -176,11 +266,15 @@ public class SortingSystem {
 			}
 		}
 
+<<<<<<< HEAD
 		// if maximum count of digits is less than or equal to 2 , do counting sort
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		if(maxCountOfDigits <= 2){
 
 			CountingSort countingSort = new CountingSort();
 
+<<<<<<< HEAD
 			array = countingSort.doCountingSort(array);
 
 			System.out.println("System has used Counting Sort technique and "
@@ -188,14 +282,23 @@ public class SortingSystem {
 		}
 
 		// else do radix sort
+=======
+			array = countingSort.countingSort(array);
+		}
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		else{
 
 			RadixSort radixSort = new RadixSort();
 
+<<<<<<< HEAD
 			array = radixSort.doRadixSort(array);
 
 			System.out.println("System has used Radix Sort technique and "
 					+ "sorted list is as below :");
+=======
+			array = radixSort.radixSort(array);
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		}
 
 		for(int loopVariable = 0 ; loopVariable < array.length ; ++loopVariable){
@@ -281,6 +384,7 @@ public class SortingSystem {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * 
 	 * @param message
@@ -291,6 +395,15 @@ public class SortingSystem {
 		String userInput = null;
 
 		while(true){
+=======
+	public String getUserStringInput(String message){			
+
+		boolean flag = true;
+
+		String userInput = null;
+
+		while(flag){
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 			// variable for user input
 
 			try{
@@ -304,7 +417,11 @@ public class SortingSystem {
 
 				if(userInput.length() > 0){
 
+<<<<<<< HEAD
 					return userInput;
+=======
+					flag = false;
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 				}
 
 			}catch(Exception ex){
@@ -313,5 +430,10 @@ public class SortingSystem {
 
 			}
 		}
+<<<<<<< HEAD
+=======
+
+		return userInput;
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	}
 }

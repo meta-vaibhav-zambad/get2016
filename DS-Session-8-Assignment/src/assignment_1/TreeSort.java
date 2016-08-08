@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @author vaibhav zambad
  * 
@@ -6,6 +7,8 @@
  * Aim :  To Write a program to print disorderly provided role numbers of 
  * 		n students in  ascending series using tree sort
 */
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 package assignment_1;
 
 import java.io.BufferedReader;
@@ -13,6 +16,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 // main class to define tree sort
 public class TreeSort {
 
@@ -22,12 +26,19 @@ public class TreeSort {
 	/**
 	 * constructor to initialize buffered reader object
 	 */
+=======
+public class TreeSort {
+
+	BufferedReader bufferedReader = null;
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public TreeSort(){
 
 		bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	}
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		
 		// variable to continue
 		boolean flagToContinue = true;
@@ -44,6 +55,19 @@ public class TreeSort {
 				List<Integer> studentRollNumberList = new ArrayList<Integer>();
  
 				// variable for user permission to continue or not
+=======
+
+		boolean flag = true;
+
+		while(flag){
+
+			TreeSort treeSort = new TreeSort();
+
+			try{
+
+				Node startNode = null;
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 				char userPermission = '\0';
 
 				do{
@@ -56,7 +80,11 @@ public class TreeSort {
 
 					case 1:
 
+<<<<<<< HEAD
 						treeSort.addStudent(studentRollNumberList);
+=======
+						startNode = treeSort.addStudent(startNode);
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 
 						break;
 
@@ -66,11 +94,15 @@ public class TreeSort {
 
 					}
 
+<<<<<<< HEAD
 					// getting user permission
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 					userPermission = treeSort.getUserStringInput("Press y or Y to continue").charAt(0);
 
 				}while(userPermission == 'y' || userPermission =='Y');
 				
+<<<<<<< HEAD
 				startNode = treeSort.createBinarySearchTree(studentRollNumberList, startNode);
 				
 				
@@ -84,6 +116,18 @@ public class TreeSort {
 					treeSort.getSortedOrder(startNode , sortedRollNumberList);
 					
 					for (Integer rollNumber : sortedRollNumberList) {
+=======
+
+				if(startNode != null){
+					
+					List<Integer> rollNumberList = new ArrayList<Integer>();
+
+					System.out.println("Sorted Order according to roll number");
+
+					treeSort.getSortedOrder(startNode , rollNumberList);
+					
+					for (Integer rollNumber : rollNumberList) {
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 						
 						System.out.println(rollNumber);
 					}
@@ -94,7 +138,11 @@ public class TreeSort {
 					System.out.println("No student to display");
 				}
 				
+<<<<<<< HEAD
 				flagToContinue = false;
+=======
+				flag = false;
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 
 			}catch(Exception ex){
 
@@ -103,8 +151,12 @@ public class TreeSort {
 			}finally{
 
 				try{
+<<<<<<< HEAD
 					
 					// close input stream
+=======
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 					treeSort.bufferedReader.close();
 
 				}catch(Exception ex){
@@ -117,6 +169,7 @@ public class TreeSort {
 		System.out.println("Program Ended");
 	}
 
+<<<<<<< HEAD
 	/**
 	 * This method adds the student to tree
 	 * 
@@ -124,6 +177,9 @@ public class TreeSort {
 	 * @return startnode after adding student
 	 */
 	public void addStudent(List<Integer> studentRollNumberList) {
+=======
+	public Node addStudent(Node startNode){
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 
 		boolean flag = true;
 
@@ -132,9 +188,17 @@ public class TreeSort {
 			try{
 
 				int studentRollNumber = getUserIntegerInput("Please enter student roll number");
+<<<<<<< HEAD
 				
 				studentRollNumberList.add(studentRollNumber);
 				
+=======
+
+				BinarySearchTree binarySearchTree = new BinarySearchTree();
+
+				startNode = binarySearchTree.insertNode(startNode, studentRollNumber);
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 				flag = false;
 
 			}catch(Exception ex){
@@ -143,6 +207,7 @@ public class TreeSort {
 
 			}
 		}
+<<<<<<< HEAD
 	}
 	
 	public Node createBinarySearchTree(List<Integer> rollNumberList , Node startNode){
@@ -162,6 +227,12 @@ public class TreeSort {
 	 * @param startNode
 	 * @param rollNumberList
 	 */
+=======
+
+		return startNode;
+	}
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public void getSortedOrder(Node startNode , List<Integer> rollNumberList){
 
 		if(startNode != null){
@@ -172,6 +243,7 @@ public class TreeSort {
 
 			getSortedOrder(startNode.right , rollNumberList);
 		}
+<<<<<<< HEAD
 		
 	}
 
@@ -180,6 +252,10 @@ public class TreeSort {
 	 * @param message
 	 * @return user integer input
 	 */
+=======
+	}
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public int getUserIntegerInput(String message){
 
 		boolean flag = true;
@@ -213,11 +289,14 @@ public class TreeSort {
 		return userInput;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * 
 	 * @param message
 	 * @return user string input
 	 */
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 	public String getUserStringInput(String message){			
 
 		boolean flag = true;
@@ -225,6 +304,10 @@ public class TreeSort {
 		String userInput = null;
 
 		while(flag){
+<<<<<<< HEAD
+=======
+			// variable for user input
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 
 			try{
 
@@ -233,6 +316,11 @@ public class TreeSort {
 				// taking user input
 				userInput = bufferedReader.readLine();
 
+<<<<<<< HEAD
+=======
+				//System.out.println("hello");
+
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 				if(userInput.length() > 0){
 
 					flag = false;

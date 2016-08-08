@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @author vaibhav zambad
  * 
@@ -22,6 +23,14 @@ public class BinarySearchTree {
 	public Node insertNode(Node startNode , int element){
 		
 		// if start node is null
+=======
+package assignment_1;
+
+public class BinarySearchTree {
+	
+	public Node insertNode(Node startNode , int element){
+		
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		if(startNode == null){
 			
 			startNode = new Node();
@@ -35,14 +44,20 @@ public class BinarySearchTree {
 		
 		else{
 			
+<<<<<<< HEAD
 			// if current element is greater than start node value 
 			// insert node to left
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 			if(startNode.nodeValue  >  element){
 				
 				startNode.left = insertNode(startNode.left, element);
 			}
 			
+<<<<<<< HEAD
 			// else insert node to right
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 			else if(startNode.nodeValue < element){
 				
 				startNode.right = insertNode(startNode.right, element);

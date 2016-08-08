@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @author vaibhav zambad
  * 
@@ -6,6 +7,8 @@
  * Aim :  Write a sorting system, which takes input from user and provide a sorted list. 
  * Here User could choose if he want to go with Comparison Sorting Or Linear Sorting.
 */
+=======
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 package assignment_2;
 
 public class QuickSort {
@@ -21,7 +24,11 @@ public class QuickSort {
 	 * QuickSort works on recursion .A pivot element is placed such that all to 
 	 * left of it are smaller and right to it are greater.
 	 */
+<<<<<<< HEAD
 	public int[] doQuickSort(int[] array , int start,int end){
+=======
+	public int[] quickSort(int[] array , int start,int end){
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 
 
 		//condition to check to call this method again 
@@ -31,10 +38,17 @@ public class QuickSort {
 			int partitionIndex = partition(array,start,end);
 
 			// calling the same method from start to partitionIndex-1 to sort the left array 
+<<<<<<< HEAD
 			doQuickSort(array , start , partitionIndex - 1);
 
 			// calling the same method from partitionIndex+1 to end to sort the right array
 			doQuickSort(array , partitionIndex + 1 , end);
+=======
+			quickSort(array , start , partitionIndex - 1);
+
+			// calling the same method from partitionIndex+1 to end to sort the right array
+			quickSort(array , partitionIndex + 1 , end);
+>>>>>>> f5d22ff314a6a1ce847b73e8e9e3c9f5d1a57fe8
 		}
 
 		// returning sorted array
