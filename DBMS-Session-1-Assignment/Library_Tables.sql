@@ -40,14 +40,22 @@ CREATE TABLE Titles(
 	publisher_id CHAR(36) NOT NULL,
 	PRIMARY KEY (title_id),
 	FOREIGN KEY fk_publisher (publisher_id) REFERENCES Publishers (publisher_id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
 	
 );
 CREATE TABLE Title_Author(
 	
 	title_id CHAR(36) NOT NULL,
 	author_id CHAR(36) NOT NULL,
-	FOREIGN KEY fk_title (title_id) REFERENCES Titles (title_id),
-	FOREIGN KEY fk_author (author_id) REFERENCES Authors (author_id),
+	FOREIGN KEY fk_title (title_id) REFERENCES Titles (title_id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+	
+	FOREIGN KEY fk_author (author_id) REFERENCES Authors (author_id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+	
 	PRIMARY KEY (title_id,author_id)
 
 );
@@ -61,6 +69,8 @@ CREATE TABLE Books(
 	book_status VARCHAR(50) NOT NULL,
 	PRIMARY KEY (accession_number),
 	FOREIGN KEY fk_title (title_id) REFERENCES Titles (title_id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
 
 );
 
@@ -81,8 +91,12 @@ CREATE TABLE Book_Issue(
 	accession_number VARCHAR(100) NOT NULL,
 	member_id CHAR(36) NOT NULL,
 	due_date DATE NOT NULL,
-	FOREIGN KEY fk_book (accession_number) REFERENCES Books (accession_number) ON DELETE CASCADE,
-	FOREIGN KEY fk_member (member_id) REFERENCES Members (member_id) ON DELETE CASCADE,
+	FOREIGN KEY fk_book (accession_number) REFERENCES Books (accession_number) 
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+	FOREIGN KEY fk_member (member_id) REFERENCES Members (member_id) 
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
 	PRIMARY KEY (issue_date,accession_number,member_id)
 	
 );
@@ -93,8 +107,12 @@ CREATE TABLE Book_Return(
 	accession_number VARCHAR(100) NOT NULL,
 	member_id CHAR(36) NOT NULL,
 	issue_date DATE NOT NULL,
-	FOREIGN KEY fk_book (accession_number) REFERENCES Books (accession_number) ON DELETE CASCADE,
-	FOREIGN KEY fk_member (member_id) REFERENCES Members (member_id) ON DELETE CASCADE,
+	FOREIGN KEY fk_book (accession_number) REFERENCES Books (accession_number) 
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+	FOREIGN KEY fk_member (member_id) REFERENCES Members (member_id) 
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
 	PRIMARY KEY (return_date,accession_number,member_id)
 	
 );

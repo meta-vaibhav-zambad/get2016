@@ -10,24 +10,24 @@ Values ('172-32-1178','Carson','Cheryl','589 Darwin Lane','Berkeley','CA');
 SELECT * FROM Authors;
 
 Insert Into Publishers (publisher_id,publisher_name,publisher_city)
-Values ('735','New Moon Books','Boston');
+Values ('1','New Moon Books','Boston');
 
 Insert Into Publishers (publisher_id,publisher_name,publisher_city)
-Values ('877','Binnet and Hardely','Washington');
+Values ('2','Binnet and Hardely','Washington');
 
 Insert Into Publishers (publisher_id,publisher_name,publisher_city)
-Values ('985','AlgoData Publishers','Berkeley');
+Values ('3','AlgoData Publishers','Berkeley');
 
 SELECT * FROM Publishers;
 
 INSERT INTO Titles (title_id,title_name,title_type,title_price,publisher_id)
-Values ('BU1232','The Busy Executive Database Guide','business','19.99','735');
+Values ('BU1232','The Busy Executive Database Guide','business','19.99','1');
 
 INSERT INTO Titles (title_id,title_name,title_type,title_price,publisher_id)
-Values ('BU2075','You can combat computer stress','business','56.99','877');
+Values ('BU2075','You can combat computer stress','business','56.99','2');
 
 INSERT INTO Titles (title_id,title_name,title_type,title_price,publisher_id)
-Values ('PS2091','Is Anger the Enemy?','psychology','10.95','985');
+Values ('PS2091','Is Anger the Enemy?','psychology','10.95','3');
 
 SELECT * FROM Titles;
 
