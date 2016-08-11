@@ -1,3 +1,8 @@
+/*Qu: Consider a form where providing a Zip Code populates associated City and State. 
+Create appropriate tables and relationships for the same and write a SQL query for that 
+returns a Resultset containing Zip Code, City Names and States ordered by State Name and City Name.*/
+
+
 CREATE DATABASE Country;
 
 USE Country;
@@ -78,4 +83,5 @@ VALUES ('Ajmer','6000000','Rajasthan','342477');
 Select z.zipcode , c.city_name , c.state_name
 FROM Country_Zipcode z
 LEFT JOIN Country_City c 
-ON z.zipcode = c.zipcode;
+ON z.zipcode = c.zipcode
+ORDER BY c.state_name AND c.city_name;
