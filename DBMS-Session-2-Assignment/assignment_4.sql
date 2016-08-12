@@ -84,4 +84,4 @@ Select z.zipcode , c.city_name , c.state_name
 FROM Country_Zipcode z
 LEFT JOIN Country_City c 
 ON z.zipcode = c.zipcode
-ORDER BY c.state_name AND c.city_name;
+ORDER BY c.state_name , c.city_name;
