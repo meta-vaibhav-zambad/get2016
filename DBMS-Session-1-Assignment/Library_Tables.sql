@@ -37,9 +37,13 @@ CREATE TABLE Titles(
 	title_name VARCHAR(300) NOT NULL,
 	title_type VARCHAR(100) NOT NULL,
 	title_price DECIMAL(5,3) NOT NULL,
+	subject_id CHAR(36) NOT NULL,
 	publisher_id CHAR(36) NOT NULL,
 	PRIMARY KEY (title_id),
 	FOREIGN KEY fk_publisher (publisher_id) REFERENCES Publishers (publisher_id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+	FOREIGN KEY fk_subject (subject_id) REFERENCES Subjects (subject_id)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 	
@@ -97,13 +101,13 @@ CREATE TABLE Book_Issue(
 	FOREIGN KEY fk_member (member_id) REFERENCES Members (member_id) 
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-	PRIMARY KEY (issue_date,accession_number,member_id)
+	PRIMARY KEY (due_date,accession_number,member_id)
 	
 );
 
 CREATE TABLE Book_Return(
 	
-	return_date DATE NOT NULL,
+	return_date DATE ,
 	accession_number VARCHAR(100) NOT NULL,
 	member_id CHAR(36) NOT NULL,
 	issue_date DATE NOT NULL,
@@ -113,6 +117,6 @@ CREATE TABLE Book_Return(
 	FOREIGN KEY fk_member (member_id) REFERENCES Members (member_id) 
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-	PRIMARY KEY (return_date,accession_number,member_id)
+	PRIMARY KEY (issue_date,accession_number,member_id)
 	
 );

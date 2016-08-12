@@ -12,7 +12,7 @@ DESCRIBE Book_Issue;
 
 ALTER TABLE Book_Issue ALTER due_date SET DEFAULT '2016-08-30';
 
-DESCRIBE Book_Issue; 
+DESCRIBE Book_Issue;
 
 /* Qu:  Write a command to remove Members table */
 
