@@ -120,6 +120,7 @@ public class DAOManager {
 				
 				daoManager = null;
 			}
+			
 			INSTANCE = daoManager;
 		}
 	}

@@ -5,7 +5,7 @@ import java.util.Date;
 public class Book {
 	
 	private String bookTitleName;
-	private Date bookType;
+	private String bookType;
 	private double bookPrice;
 	
 	public String getBookTitleName() {
@@ -16,11 +16,11 @@ public class Book {
 		this.bookTitleName = bookTitleName;
 	}
 	
-	public Date getBookType() {
+	public String getBookType() {
 		return bookType;
 	}
 	
-	public void setBookType(Date bookType) {
+	public void setBookType(String bookType) {
 		this.bookType = bookType;
 	}
 	

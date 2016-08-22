@@ -3,6 +3,7 @@ package assignment_1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookDAO {
@@ -15,6 +16,7 @@ public class BookDAO {
 	public BookDAO(Connection connection){
 		
 		this.connection = connection;
+		listOfBooks = new ArrayList<Book>();
 	}
 	
 	public List<Book> selectBooks(){
@@ -35,7 +37,7 @@ public class BookDAO {
 				
 				Book book = new Book();
 				book.setBookTitleName(resultSet.getString(1));
-				book.setBookType(resultSet.getDate(2));
+				book.setBookType(resultSet.getString(2));
 				book.setBookPrice(resultSet.getDouble(3));
 				listOfBooks.add(book);
 			}
