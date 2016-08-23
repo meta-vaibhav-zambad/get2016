@@ -3,21 +3,23 @@
  * 
  * Date : 23 August 2016
  * 
- * Aim :  Write a program to fetch all the books published by author, given the name of the author. 
- *		Return the books data (List of Titles).
+ * Aim :  Given the name of the book, to be issued by an existing member.
+ * 		Return flag to indicate whether the book has been issued or not.	
 */
-package assignment_1;
+package assignment_2;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.util.List;
 
-// Main Class 
+import assignment_1.DAOManager;
+
+//Main Class 
 public class Library {
 
 	// buffered reader object for input output stream
 	BufferedReader bufferedReader = null;
+
 
 	/**
 	 * Sets the buffered reader object 
@@ -38,46 +40,34 @@ public class Library {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException{
 
 		Library library = new Library();
-
-		Author author = new Author();
-
-		// get DAO Manager single instance
-		DAOManager daoManager = DAOManager.getInstance();
-
-		// get user input for first name of author
-		String firstNameOfAuthor = library.getUserInput("Please enter first name of author");
-
-		// get user input for last name of author
-		String lastNameOfAuthor = library.getUserInput("Please enter last name of author");
 		
-		author.setAuthorFName(firstNameOfAuthor);
+		Book book = new Book();
 
-		author.setAuthorLName(lastNameOfAuthor);
+		// get single DAO Manager Instance
+		DAOManager daoManager = DAOManager.getInstance();
+		
+		// get user input for name of book
+		String titleName = library.getUserInput("Please enter name of book");
 
-		// book dao object 
-		BookDAO bookDao = new BookDAO(daoManager.getConnection());
-
-		List<Book> bookList = bookDao.selectBooks(author);
-
-		if(bookList != null && bookList.size() != 0){
+		book.setBookTitleName(titleName);
+		
+		BookIssuedDAO bookIssueDAO = new BookIssuedDAO(daoManager.getConnection());
+		
+		bookIssueDAO.isBookIssued(book);
+		
+		if(book.isBookIssued()){
 			
-			for(Book book : bookList){
-
-				System.out.println("Title: "+book.getBookTitleName());
-				System.out.println("Type: "+book.getBookType());
-				System.out.println("Price: "+book.getBookPrice());
-			}
+			System.out.println("Book is available");
 		}
 		else{
-			
-			System.out.println("No Books Found");
+			System.out.println("Book is not available");
 		}
-
-		// close connection
+		
 		daoManager.closeConnection();
 
 
 	}
+	
 
 	/**
 	 * This method sets the user input

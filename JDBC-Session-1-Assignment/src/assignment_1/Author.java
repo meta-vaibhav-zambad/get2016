@@ -1,76 +1,76 @@
+/**
+ * @author vaibhav zambad
+ * 
+ * Date : 23 August 2016
+ * 
+ * Aim :  Write a program to fetch all the books published by author, given the name of the author. 
+ *		Return the books data (List of Titles).
+*/
 package assignment_1;
 
+// pojo (Plain Old Java Object) author class
+// getter setter for author class
 public class Author {
 
-	private String authorId;
+	// author first name
 	private String authorLName;
-	private String authorFName;
-	private String authorAddress;
-	private String authorState;
 	
+	// author last name
+	private String authorFName;
+	
+	/**
+	 * Constructor for author
+	 */
 	public Author(){
 		
-		this.authorId = null;
 		this.authorLName = null;
 		this.authorFName = null;
-		this.authorAddress = null;
-		this.authorState = null;
 	}
+	
+	/**
+	 * Parameterized Constructor for author
+	 */
+	public Author(String authorLName,String authorFName){
 
-	public Author(String authorId,String authorLName,String authorFName,
-			String authorAddress , String authorState){
-
-		this.authorId = authorId;
 		this.authorLName = authorLName;
 		this.authorFName = authorFName;
-		this.authorAddress = authorAddress;
-		this.authorState = authorState;
 
 	}
-
-	public String getAuthorId() {
-		return authorId;
-	}
-
-	public void setAuthorId(String authorId) {
-		this.authorId = authorId;
-	}
-
+	
+	/**
+	 * @return the authorLName
+	 */
 	public String getAuthorLName() {
 		return authorLName;
 	}
 
+	/**
+	 * @param authorLName the authorLName to set
+	 */
 	public void setAuthorLName(String authorLName) {
 		this.authorLName = authorLName;
 	}
 
+	/**
+	 * @return the authorFName
+	 */
 	public String getAuthorFName() {
 		return authorFName;
 	}
 
+	/**
+	 * @param authorFName the authorFName to set
+	 */
 	public void setAuthorFName(String authorFName) {
 		this.authorFName = authorFName;
 	}
 
-	public String getAuthorAddress() {
-		return authorAddress;
-	}
-
-	public void setAuthorAddress(String authorAdddress) {
-		this.authorAddress = authorAdddress;
-	}
-
-	public String getAuthorState() {
-		return authorState;
-	}
-
-	public void setAuthorState(String authorState) {
-		this.authorState = authorState;
-	}
-	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString(){
 		
-		return this.authorId +" "+this.authorLName+" "+this.authorFName+" "+this.authorAddress
-				+" "+this.authorAddress+" "+this.authorState;
+		return this.authorLName+" "+this.authorFName;
 	}
 }
