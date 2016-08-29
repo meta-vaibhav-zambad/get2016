@@ -1,0 +1,108 @@
+#siteTitle{
+	
+	font-size : 150%;
+	font-family : sans-serif;
+	font-style : normal;
+}
+#siteSlogan{
+	
+	font-size : 80%; 
+	font-family : sans-serif;
+	font-style : normal;
+}
+
+#siteparentdiv{
+	
+	float : center;
+	background-color : #B9DFEC;
+	border-color : #0099cc;
+	border-width : 1px;
+	border-style : solid;
+	border-radius : 10px;
+}
+
+#linkparentdiv{
+	
+	background-color : #B2AD9D;
+	border-color : #0099cc;
+	border-width : 1px;
+	border-style : solid;
+	font-size : 120%;
+}
+
+#linkbutton{
+	display: inline;
+	padding-top : 0.5%;
+	padding-bottom : 0.5%;
+	padding-left : 0.7%;
+	
+}
+
+#verticalMenuParent{
+	
+	margin-top : 1%;
+	margin-left : 1%;
+	float : left;
+	background-color : #ECF1C7;
+}
+
+#verticalMenu{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	font-weight : bold;
+	border-width : 200px;
+	border-radius: 10px;
+	background-color : #D0E4DD;
+	padding-top : 7%;
+	padding-bottom : 5%;
+	margin-top : 2%;
+}
+
+#verticalNewPage{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	border-width : 200px;
+	background-color : #D0E4DD;
+	padding-top : 5%;
+	padding-bottom : 5%;
+	margin-top : 2%;
+}
+
+#verticalNewPage2{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	padding-top : 5%;
+	padding-bottom : 8%;
+}
+
+#verticalNewBlockParent{
+	
+	margin-top : 200%;
+	margin-left : 1%;
+	background-color : #ECF1C7;
+}
+
+#verticalNewBlock{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	font-weight : bold;
+	border-width : 200px;
+	border-radius: 10px;
+	background-color : #D0E4DD;
+	padding-top : 7%;
+	padding-bottom : 5%;
+	margin-top : 5%;
+}
+
+#content{
+	
+	padding-top : 2%;
+}
