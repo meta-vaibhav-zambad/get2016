@@ -1,0 +1,305 @@
+#siteTitle{
+	
+	font-size : 150%;
+	font-family : sans-serif;
+	font-style : normal;
+}
+#siteSlogan{
+	
+	font-size : 80%; 
+	font-family : sans-serif;
+	font-style : normal;
+}
+
+#siteparentdiv{
+	
+	float : center;
+	background-color : #B9DFEC;
+	border-color : #0099cc;
+	border-width : 1px;
+	border-style : solid;
+	border-radius : 10px;
+}
+
+ul{
+	
+	list-style-type : none;
+	margin : 0;
+	padding : 0;
+	overflow : hidden;
+	background-color : #D5CFC4;
+}
+
+li{
+	
+	float : left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #7BD9E2;
+}
+
+#linkparentdiv{
+	
+	background-color : #B2AD9D;
+	border-color : #0099cc;
+	border-width : 1px;
+	border-style : solid;
+	font-size : 120%;
+}
+
+#linkbutton{
+	display: inline;
+	padding-top : 0.5%;
+	padding-bottom : 0.5%;
+	padding-left : 0.7%;
+	
+}
+
+#verticalMenuParent{
+	
+	margin-top : 1%;
+	margin-left : 1%;
+	float : left;
+	background-color : #ECF1C7;
+	width : 15%;
+}
+
+#verticalMenu{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	font-weight : bold;
+	border-width : 200px;
+	border-radius: 10px;
+	background-color : #D0E4DD;
+	padding-top : 7%;
+	padding-bottom : 5%;
+	margin-top : 2%;
+	padding-left : 4%;
+}
+
+#verticalNewPage{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	border-width : 200px;
+	padding-top : 5%;
+	padding-bottom : 5%;
+	margin-top : 2%;
+	padding-left : 4%;
+	display : block;
+	color: orange;
+}
+
+#verticalNewPage2{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	display : block;
+	color : orange;
+	padding-top : 5%;
+	padding-bottom : 8%;
+	padding-left : 4%;
+}
+
+#verticalNewBlockParent{
+	
+	margin-top : 200%;
+	margin-left : 1%;
+	background-color : #ECF1C7;
+	padding-left : 4%;
+}
+
+#verticalNewBlock{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	font-weight : bold;
+	border-width : 200px;
+	border-radius: 10px;
+	background-color : #D0E4DD;
+	padding-top : 7%;
+	padding-bottom : 5%;
+	margin-top : 5%;
+	padding-left : 4%;
+}
+
+#content{
+	
+	margin-top : 5%;
+	margin-left : 8%;
+	margin-right : 5%;
+	font-family : verdana;
+	font-size : 107%;
+}
+
+#middle{
+	
+	float : left;
+	margin-left : 10%;
+	margin-top : 1.5%;
+	width : 20%;
+}
+
+#newPage{
+	
+	font-size : 190%;
+	font-family : verdana;
+	font-weight : bold;
+}
+
+#pageContent{
+	
+	margin-top : 9%;
+	font-family : times new roman;
+	font-size : 140%;
+}
+
+#yogaImage{
+	
+	margin-top : 9%;
+	margin-left : 3%;
+	width : 200%;
+	background-color : red;
+}
+
+#yogaImage img{
+	
+	width : 100%;
+} 
+#yogaContent{
+	
+	position : absolute;
+	margin-top : 0.5%;
+	margin-right : 28%;
+	font-family : verdana;
+	font-size : 107%;
+}
+
+#right{
+	
+	float : right;
+	margin-top : 2%;
+	margin-right : 10%; 
+	background-color : #ECF1C7;
+	width : 15%;
+}
+
+#search{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	font-weight : bold;
+	border-width : 300px;
+	border-radius: 10px;
+	background-color : #D0E4DD;
+	padding-top : 7%;
+	padding-bottom : 5%;
+	padding-right : 5%;
+	padding-left : 5%;
+	margin-top : 2%;
+}
+
+#input{
+	
+	padding : 1%;
+	margin-left : 3%;
+	width : 80%;
+	margin-top : 5%;
+}
+
+#submit{
+	
+	margin-left: 3%;
+	padding-bottom: 3%;
+	padding-left : 3%;
+	padding-top: 4%;
+}
+
+#categories{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	font-weight : bold;
+	border-width : 300px;
+	border-radius: 10px;
+	background-color : #D0E4DD;
+	padding-top : 7%;
+	padding-bottom : 5%;
+	padding-right : 5%;
+	padding-left : 5%;
+	margin-top : 15%;
+}
+
+#categoryContent{
+	
+	margin-top : 5%;
+	margin-right : 5%;
+	margin-left : 8%;
+	font-family : verdana;
+	font-size : 107%;
+}
+
+#rightLinks{
+	
+	margin-top : 7%;
+	margin-left : 4%;
+}
+
+#archives{
+	
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	font-weight : bold;
+	border-width : 300px;
+	border-radius: 10px;
+	background-color : #D0E4DD;
+	padding-top : 7%;
+	padding-bottom : 5%;
+	padding-right : 5%;
+	padding-left : 5%;
+	margin-top : 15%;
+}
+
+#monthLinks{
+	
+	
+	margin-top : 4%;
+	margin-left : 4%;
+	clear: both;
+}
+
+#footer{
+	
+	width : 100%;
+	font-size : 120%;
+	font-family : verdana;
+	font-style : normal;
+	background-color : #C5CA9D;
+	margin-top:4%;
+	text-align : center;
+	position : relative;
+	clear:both;
+}
+
+#main{
+	
+	width: 100%;
+	overflow : auto;
+}
