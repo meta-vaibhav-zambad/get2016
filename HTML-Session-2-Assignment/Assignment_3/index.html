@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <canvas id="circle" width="200" height="200"> </canvas>
+    <script>
+      var canvas = document.getElementById('circle');
+      var context = canvas.getContext('2d');
+      var centerX = 50;
+      var centerY = 50;
+      var radius = 30;
+
+      context.beginPath();
+      context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      context.fillStyle = '#3EA8CD';
+      context.fill();
+    </script>
+	
+	<canvas id="rectangle" width="200" height="200"> </canvas>
+	<script>
+		var canvas = document.getElementById('rectangle');
+		var context = canvas.getContext('2d');
+		
+		context.rect(20,20,60,60);
+		context.fillStyle = '#1FA505';
+		context.fill();
+	</script>
+	
+	<canvas id="triangle" width="200" height="200"> </canvas>
+	<script>
+		var canvas = document.getElementById('triangle');
+		var context = canvas.getContext('2d');
+		
+		context.beginPath();
+        context.moveTo(34, 5);
+        context.lineTo(5, 60);
+        context.lineTo(60, 60);
+        context.closePath();
+		context.fillStyle = '#BC1CD5';
+        context.fill();
+	</script>
+	
+	<canvas id="circle2" width="200" height="200"> </canvas>
+	<script>
+		var canvas = document.getElementById('circle2');
+		var context = canvas.getContext('2d');
+		var centerX = 50;
+		var centerY = 50;
+		var radius = 25;
+	
+		context.beginPath();
+		context.arc(centerX , centerY , radius , 0, 2 * Math.PI);
+		context.strokeStyle = "#BC1CD5";
+		context.lineWidth = 18;
+		context.fillStyle = "white";
+		context.stroke();
+		context.fill();
+	</script>		
+	
+	<canvas id="semicircle" width="200" height="200"> </canvas>
+	<script>
+		var canvas = document.getElementById('semicircle');
+		var context = canvas.getContext('2d');
+
+		context.beginPath();
+		context.arc(50,50,40,1.5*Math.PI,0.5*Math.PI,false);
+		context.closePath();
+		context.lineWidth = 5;
+		context.strokeStyle = "#C6C1C8";
+		context.stroke();
+		context.beginPath();
+		context.arc(50,50,40,0.5*Math.PI,1.5*Math.PI,false);
+		context.closePath();
+		context.fillStyle ="#3EA8CD";
+		context.fill();
+		context.lineWidth = 5;
+		context.strokeStyle = "#3EA8CD";
+		context.stroke();
+		
+	</script>	
+ </body>
+ </html>
