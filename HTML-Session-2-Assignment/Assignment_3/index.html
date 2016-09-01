@@ -1,82 +1,133 @@
 <!DOCTYPE html>
 <html>
 <body>
+	
+	<div style='margin:top:1%; margin-left:10%;'>
+		<canvas id="circle" width="200" height="200"> </canvas>
+		<script>
+			var canvas = document.getElementById('circle');
+			var context = canvas.getContext('2d');
+			var centerX = 50;
+			var centerY = 50;
+			var radius = 30;
 
-    <canvas id="circle" width="200" height="200"> </canvas>
-    <script>
-      var canvas = document.getElementById('circle');
-      var context = canvas.getContext('2d');
-      var centerX = 50;
-      var centerY = 50;
-      var radius = 30;
+			context.beginPath();
+			context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+			context.fillStyle = '#3EA8CD';
+			context.fill();
+		</script>
+	</div>
+	
+	<div style='margin:top:1%; margin-left:10%;'>
+		<canvas id="rectangle" width="200" height="200"> </canvas>
+		<script>
+			var canvas = document.getElementById('rectangle');
+			var context = canvas.getContext('2d');
+		
+			context.rect(20,20,60,60);
+			context.fillStyle = '#1FA505';
+			context.fill();
+		</script>
+	</div>
+	
+	<div style='margin:top:1%; margin-left:10%;'>
+		<canvas id="triangle" width="200" height="200"> </canvas>
+		<script>
+			var canvas = document.getElementById('triangle');
+			var context = canvas.getContext('2d');
+		
+			context.beginPath();
+			context.moveTo(34, 5);
+			context.lineTo(5, 60);
+			context.lineTo(60, 60);
+			context.closePath();
+			context.fillStyle = '#BC1CD5';
+			context.fill();
+		</script>
+	</div>
+	
+	<div style='margin:top:1%; margin-left:10%;'>
+		<canvas id="circle2" width="200" height="200"> </canvas>
+		<script>
+			var canvas = document.getElementById('circle2');
+			var context = canvas.getContext('2d');
+			var centerX = 50;
+			var centerY = 50;
+			var radius = 25;
+	
+			context.beginPath();
+			context.arc(centerX , centerY , radius , 0, 2 * Math.PI);
+			context.strokeStyle = "#BC1CD5";
+			context.lineWidth = 18;
+			context.fillStyle = "white";
+			context.stroke();
+			context.fill();
+		</script>		
+	</div>
+	
+	<div style='margin:top:1%; margin-left:10%;'>
+		<canvas id="semicircle" width="200" height="200"> </canvas>
+		<script>
+			var canvas = document.getElementById('semicircle');
+			var context = canvas.getContext('2d');
 
-      context.beginPath();
-      context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-      context.fillStyle = '#3EA8CD';
-      context.fill();
-    </script>
-	
-	<canvas id="rectangle" width="200" height="200"> </canvas>
-	<script>
-		var canvas = document.getElementById('rectangle');
-		var context = canvas.getContext('2d');
+			context.beginPath();
+			context.arc(50,50,40,1.5*Math.PI,0.5*Math.PI,false);
+			context.closePath();
+			context.lineWidth = 5;
+			context.strokeStyle = "#C6C1C8";
+			context.stroke();
+			context.beginPath();
+			context.arc(50,50,40,0.5*Math.PI,1.5*Math.PI,false);
+			context.closePath();
+			context.fillStyle ="#3EA8CD";
+			context.fill();
+			context.lineWidth = 5;
+			context.strokeStyle = "#3EA8CD";
+			context.stroke();
 		
-		context.rect(20,20,60,60);
-		context.fillStyle = '#1FA505';
-		context.fill();
-	</script>
+		</script>	
+	</div>
 	
-	<canvas id="triangle" width="200" height="200"> </canvas>
-	<script>
-		var canvas = document.getElementById('triangle');
-		var context = canvas.getContext('2d');
+	<div style='margin:top:1%; margin-left:10%;'>
+		<canvas id="polygonincircle" width="200" height="200"> </canvas>
+		<script>
+			var canvas = document.getElementById('polygonincircle');
+			var context = canvas.getContext('2d');
+			var centerX = 50;
+			var centerY = 50;
+			var radius = 25;
+	
+			context.beginPath();
+			context.arc(centerX , centerY , radius , 0, 2 * Math.PI);
+			context.closePath();
+			context.fillStyle ="yellow";
+			context.fill();
+			context.lineWidth = 18;
+			context.strokeStyle = "yellow";
+			context.stroke();
 		
-		context.beginPath();
-        context.moveTo(34, 5);
-        context.lineTo(5, 60);
-        context.lineTo(60, 60);
-        context.closePath();
-		context.fillStyle = '#BC1CD5';
-        context.fill();
-	</script>
-	
-	<canvas id="circle2" width="200" height="200"> </canvas>
-	<script>
-		var canvas = document.getElementById('circle2');
-		var context = canvas.getContext('2d');
-		var centerX = 50;
-		var centerY = 50;
-		var radius = 25;
-	
-		context.beginPath();
-		context.arc(centerX , centerY , radius , 0, 2 * Math.PI);
-		context.strokeStyle = "#BC1CD5";
-		context.lineWidth = 18;
-		context.fillStyle = "white";
-		context.stroke();
-		context.fill();
-	</script>		
-	
-	<canvas id="semicircle" width="200" height="200"> </canvas>
-	<script>
-		var canvas = document.getElementById('semicircle');
-		var context = canvas.getContext('2d');
-
-		context.beginPath();
-		context.arc(50,50,40,1.5*Math.PI,0.5*Math.PI,false);
-		context.closePath();
-		context.lineWidth = 5;
-		context.strokeStyle = "#C6C1C8";
-		context.stroke();
-		context.beginPath();
-		context.arc(50,50,40,0.5*Math.PI,1.5*Math.PI,false);
-		context.closePath();
-		context.fillStyle ="#3EA8CD";
-		context.fill();
-		context.lineWidth = 5;
-		context.strokeStyle = "#3EA8CD";
-		context.stroke();
-		
-	</script>	
+			context.beginPath();
+			context.moveTo(20,45);
+			context.lineTo(45,45);
+			context.lineTo(45,20);
+			context.lineTo(55,20);
+			context.lineTo(55,25);
+			context.lineTo(55,45);
+			context.lineTo(80,45);
+			context.lineTo(80,55);
+			context.lineTo(55,55);
+			context.lineTo(55,80);
+			context.lineTo(45,80);
+			context.lineTo(45,55);
+			context.lineTo(20,55);
+			context.closePath();
+			context.fillStyle ="white";
+			context.fill();
+			context.lineWidth = 2;
+			context.strokeStyle = "white";
+			context.stroke();	
+		</script>
+	</div>	
  </body>
  </html>
