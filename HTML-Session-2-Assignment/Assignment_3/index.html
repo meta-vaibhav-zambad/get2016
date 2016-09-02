@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<body>
+	<body>
 	
-	<div style='margin:top:1%; margin-left:10%;'>
-		<canvas id="circle" width="200" height="200"> </canvas>
-		<script>
-			var canvas = document.getElementById('circle');
-			var context = canvas.getContext('2d');
-			var centerX = 50;
-			var centerY = 50;
-			var radius = 30;
+		<div style='margin:top:1%; margin-left:10%;'>
+			<canvas id="circle" width="200" height="200"> </canvas>
+			<script>
+				var canvas = document.getElementById('circle');
+				var context = canvas.getContext('2d');
+				var centerX = 50;
+				var centerY = 50;
+				var radius = 30;
 
-			context.beginPath();
-			context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-			context.fillStyle = '#3EA8CD';
-			context.fill();
-		</script>
-	</div>
+				context.beginPath();
+				context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+				context.fillStyle = '#3EA8CD';
+				context.fill();
+			</script>
+		</div>
 	
-	<div style='margin:top:1%; margin-left:10%;'>
-		<canvas id="rectangle" width="200" height="200"> </canvas>
+		<div style='margin:top:1%; margin-left:10%;'>
+			<canvas id="rectangle" width="200" height="200"> </canvas>
 		<script>
 			var canvas = document.getElementById('rectangle');
 			var context = canvas.getContext('2d');
