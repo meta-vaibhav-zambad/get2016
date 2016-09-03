@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Contact Us </title>
+		<link rel='stylesheet' type='text/css' href='site.index.css'>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<script src="index.js"> </script>
+	</head>
+	
+	<body>
+		<div id='contact'>
+			<h2> Contact Us Today! </h2>
+		</div>
+		<div>
+			<form>
+				<div>
+					<label> First Name </label>
+					<i class="fa fa-user" aria-hidden="true" id='icon'></i>
+					<input type='text' id='firstName' name='first name' value="" placeholder='First Name' pattern="[A-Za-z]{2,}" title="Must contain 2 or more letters without numbers" required/>
+				</div>
+				<div>
+					<label> Last Name </label>
+					<i class="fa fa-user" aria-hidden="true" id='icon'></i>
+					<input type='text' id='lastName' name='last name' value="" placeholder='Last Name' pattern="[A-Za-z]{2,}" title="Must contain 2 or more letters without numbers" required/>
+				</div>
+				<div>
+					<label> Gender </label>
+					<input type='radio' name='hosting' value='Yes' required/> <span id='radiotext' > Male </span> &nbsp; &nbsp;
+					<input type='radio' name='hosting' value='Yes'/> <span id='radiotext'> Female </span> &nbsp; &nbsp;
+					<input type='radio' name='hosting' value='Yes'/> <span id='radiotext'> Other </span>
+				</div>
+				<div>
+					<label> E-Mail </label>
+					<i class="fa fa-envelope" aria-hidden="true" id='icon'></i>
+					<input type='email' name='email' id='email'  placeholder='E-Mail Address' title="Must contain a valid email"  required/>
+				</div>
+				<div>
+					<label> Phone # </label>
+					<i class="fa fa-phone" aria-hidden="true" id='icon'></i>
+					<input type='text' id='phone'  name='phone' value="" placeholder='(845)555-1212' pattern="[789][0-9]{9}" title="Must contain a valid phone number"  required/>
+				</div>
+				<div>
+					<label> Address </label>
+					<i class="fa fa-home" aria-hidden="true" id='icon'></i>
+					<input type='text' id='address' name='address' value="" placeholder='Address' required/>
+				</div>
+				<div>
+					<label> Highest Qualification </label>
+					<i class="fa fa-list" aria-hidden="true" id='icon'></i>
+					<select required>
+						<option value="PhD">PhD</option>
+						<option value="Masters Degree">Masters Degree</option>
+						<option value="Bachelor Degree">Bachelor Degree</option>
+						<option value="12th Standard">12th Standard</option>
+						<option value="10th Standard">10th Standard</option>
+					</select>
+				</div>
+				<div>
+					<label> Certifications </label>
+					<i class="fa fa-certificate" aria-hidden="true"></i>
+					<input type='checkbox' name="Technologies" value = "Java" /> Java &nbsp; &nbsp;
+					<input type='checkbox' name="Technologies" value = "Salesforce" /> Salesforce &nbsp; &nbsp;
+					<input type='checkbox' name="Technologies" value = "ASP.NET" /> ASP.NET &nbsp; &nbsp;
+					<input type='checkbox' name="Technologies" value = "Node.js" /> Node.js &nbsp; &nbsp;
+					<input type='checkbox' name="Technologies" value = "Ruby On Rails" /> Ruby On Rails &nbsp; &nbsp;
+				</div> 
+				<div>
+					<button type='submit' onclick = "return validateForm()"> <h4 id='buttontext'>  Submit  <i class="fa fa-paper-plane" aria-hidden="true"></i> </h4> </button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
