@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Selection </title>
+		<script src="index.js"> </script> 
+	</head>
+	<body>
+		<div style="margin-right: 10%; margin-top:2%;">
+			<label> Radiofield :  </label>
+			<input type='radio' name='radioField' value='firstRadioOption' id = 'firstRadioOption' onclick = "return getValue()"  required/> First Radio Option &nbsp; &nbsp;
+			<input type='radio' name='radioField' value='secondRadioOption' id = 'secondRadioOption' onclick = "return getValue()"/> Second Radio Option &nbsp; &nbsp;
+		</div>
+		<div style="margin-right: 10%; margin-top:2%;">
+			<label> First Dropdown :  </label>
+			<select id="firstDropdownField">
+				<option value="First Field" id="firstField">First Field</option>
+				<option value="Second Field" id="secondField">Second Field</option>
+				<option value="Third Field" id="thirdField">Third Field</option>
+			</select>
+		</div>
+		<div style="margin-right: 10%; margin-top:2%;">
+			<label> Second Dropdown :  </label>
+			<select id="secondDropdownField">
+				<option value="First Field" id="firstField">First Field</option>
+				<option value="Second Field" id="secondField">Second Field</option>
+				<option value="Third Field" id="thirdField">Third Field</option>
+			</select>
+		</div>
+		<div id='result'>
+			
+		</div>
+	</body>
+</html>
