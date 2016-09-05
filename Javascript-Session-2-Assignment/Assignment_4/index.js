@@ -12,7 +12,7 @@ function getPattern(){
 	
 	for(var i = 0 ; i < userInput.length ; ++i){
 		
-		if(userInput[i] == "" || isNaN(userInput[i]) || Number(userInput[i]) % 1 !=0 ){
+		if(userInput[i] == "" || isNaN(userInput[i]) || Number(userInput[i]) % 1 !=0 || Number(userInput[i]) < 0 ){
 			
 			alert("Please enter valid input");
 			flag = 1;

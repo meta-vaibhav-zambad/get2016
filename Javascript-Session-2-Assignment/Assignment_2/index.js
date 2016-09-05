@@ -1,18 +1,17 @@
-function printPyramid(){
+function printPyramidWithForLoop(){
 	
 	var finalPattern = [];
-	var result = document.getElementById("pyramid");
+	var resultWithForLoop = document.getElementById("pyramidwithforloop");
 	
 	for(var i = 0; i <= 9 ; ++i){
 		
-		finalPattern.push(getSpaces(9,i)+getSymbol(i)+getSpaces(i)+"<br/>");
+		finalPattern.push(getSpacesWithForLoop(9,i)+getSymbolWithForLoop(i)+getSpacesWithForLoop(i)+"<br/>");
 	}
 	
-	result.innerHTML = finalPattern.join("");
+	resultWithForLoop.innerHTML = finalPattern.join("");
 }
 
-
-function getSpaces(totalRows,rowNumber){
+function getSpacesWithForLoop(totalRows,rowNumber){
 	
 	var spaces = "";
 	for(var i = totalRows-rowNumber-1;i >=0 ; --i){
@@ -23,7 +22,7 @@ function getSpaces(totalRows,rowNumber){
 	return spaces;
 }
 
-function getSymbol(rowNumber){
+function getSymbolWithForLoop(rowNumber){
 	
 	var symbol = "";
 	for(var i = 0 ; i < rowNumber; ++i){
@@ -33,3 +32,90 @@ function getSymbol(rowNumber){
 	
 	return symbol;
 }
+
+
+function printPyramidWithWhileLoop(){
+	
+	var finalPattern = [];
+	var result = document.getElementById("pyramidwithwhileloop");
+	var i = 0;
+	
+	while(i<= 9){
+		
+		finalPattern.push(getSpacesWithWhileLoop(9,i)+getSymbolWithWhileLoop(i)+getSpacesWithWhileLoop(i)+"<br/>");
+		++i;
+	}
+	
+	result.innerHTML = finalPattern.join("");
+}
+
+function getSpacesWithWhileLoop(totalRows,rowNumber){
+	
+	var spaces = "";
+	var i = totalRows-rowNumber-1;
+	while(i>=0){
+		
+		spaces += "&numsp;";
+		--i;
+	}
+	
+	return spaces;
+}
+
+function getSymbolWithWhileLoop(rowNumber){
+	
+	var symbol = "";
+	var i = 0;
+	while(i < rowNumber){
+		
+		symbol += "* &nbsp;";
+		++i;
+	}
+	
+	return symbol;
+}
+
+
+function printPyramidWithDoWhileLoop(){
+	
+	var finalPattern = [];
+	var result = document.getElementById("pyramidwithdowhileloop");
+	var i = 0;
+	
+	do{
+		
+		finalPattern.push(getSpacesWithWhileLoop(9,i)+getSymbolWithWhileLoop(i)+getSpacesWithWhileLoop(i)+"<br/>");
+		++i;
+	}while(i<=9);
+	
+	result.innerHTML = finalPattern.join("");
+}
+
+function getSpacesWithDoWhileLoop(totalRows,rowNumber){
+	
+	var spaces = "";
+	var i = totalRows-rowNumber-1;
+	do{
+		
+		spaces += "&numsp;";
+		--i;
+	}while(i>=0);
+	
+	return spaces;
+}
+
+function getSymbolWithDoWhileLoop(rowNumber){
+	
+	var symbol = "";
+	var i = 0;
+	do{
+		
+		symbol += "* &nbsp;";
+		++i;
+	}while(i<rowNumber);
+	
+	return symbol;
+}
+
+
+
