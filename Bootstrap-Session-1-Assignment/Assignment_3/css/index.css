@@ -1,0 +1,11 @@
+.demo-content {
+	min-height: 30px;
+	background: #dbdfe5;
+	border-style : solid;
+	border-width : 2px;
+	border-color : black;
+}
+
+h1 {
+	text-align : center;
+}

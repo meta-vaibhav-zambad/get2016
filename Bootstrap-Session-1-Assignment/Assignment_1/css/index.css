@@ -1,0 +1,17 @@
+.demo-content {
+	padding: 10px;
+	font-size: 18px;
+	min-height: 30px;
+	background: #dbdfe5;
+	text-align : center;
+	border-style : solid;
+	border-width : 2px;
+}
+
+.demo-content.bg-alt {
+	background: #abb1b8;
+}
+
+h1 {
+	text-align : center;
+}
