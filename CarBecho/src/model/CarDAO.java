@@ -66,7 +66,8 @@ public class CarDAO {
 
 	public List<CarVO> selectAllCars(){
 
-		String sqlQuery = "SELECT CompanyName , ModelNumber , Name FROM car;";
+		String sqlQuery = "SELECT CompanyName , ModelNumber , Name , FuelCapacity,"
+				+ "Milege, Price, RoadTax, AC, PowerSteering , AccessoryKit FROM car;";
 
 		PreparedStatement prepareStatement = null;
 
@@ -84,6 +85,13 @@ public class CarDAO {
 					car.setCompanyName(resultSet.getString(1));
 					car.setModelNumber(resultSet.getString(2));
 					car.setName(resultSet.getString(3));
+					car.setFuelCapacity(resultSet.getDouble(4));
+					car.setMilege(resultSet.getDouble(5));
+					car.setPrice(resultSet.getDouble(6));
+					car.setRoadTax(resultSet.getDouble(7));
+					car.setAcPresent(resultSet.getInt(8));
+					car.setPowerSteeringPresent(resultSet.getInt(9));
+					car.setAccessoryKitPresent(resultSet.getInt(10));
 					listOfCars.add(car);
 				}
 			}
@@ -99,9 +107,9 @@ public class CarDAO {
 
 	public boolean updateCar(CarVO car){
 
-		String sqlQuery = "UPDATE Car SET Company Name = ? , ModelNumber = ? , Name = ? , "
+		String sqlQuery = "UPDATE Car SET CompanyName = ? , ModelNumber = ? , Name = ? , "
 				+ "FuelCapacity = ? , Milege = ? , Price = ?, RoadTax = ? , AC = ? ,PowerSteering = ?"
-				+ "AccessoryKit = ? WHERE ID = ?";
+				+ "AccessoryKit = ? WHERE CompanyName = ? AND ModelNumer = ? AND Name = ?";
 
 		boolean flag = false;
 		PreparedStatement prepareStatement = null;
@@ -123,6 +131,9 @@ public class CarDAO {
 				prepareStatement.setInt(8, car.isAcPresent());
 				prepareStatement.setInt(9, car.isPowerSteeringPresent());
 				prepareStatement.setInt(10, car.isAccessoryKitPresent());
+				prepareStatement.setString(11, car.getCompanyName());
+				prepareStatement.setString(12, car.getModelNumber());
+				prepareStatement.setString(13, car.getName());
 				
 				prepareStatement.executeUpdate();
 

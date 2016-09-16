@@ -4,8 +4,4 @@
   <welcome-file-list>
     <welcome-file>/View/Index.html</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>/CarBechoServlet</servlet-name>
-    <servlet-class> CarBechoServlet </servlet-class>
-  </servlet>
 </web-app>
