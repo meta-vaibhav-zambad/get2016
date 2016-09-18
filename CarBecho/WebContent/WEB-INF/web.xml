@@ -4,8 +4,11 @@
   <welcome-file-list>
     <welcome-file>/View/Index.html</welcome-file>
   </welcome-file-list>
+<<<<<<< HEAD
   <servlet>
       <servlet-name> ViewCarServlet </servlet-name>
       <servlet-class> ViewCarServlet </servlet-class>
   </servlet>
+=======
+>>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 </web-app>

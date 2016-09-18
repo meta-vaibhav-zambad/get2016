@@ -10,8 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import model.CarFacade;
 import model.CarVO;
+=======
+import model.CarDAO;
+import model.CarVO;
+import model.ConnectionFactory;
+>>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 
 /**
  * Servlet implementation class ViewCarServlet
@@ -38,11 +44,21 @@ public class ViewCarServlet extends HttpServlet {
 		try{
 			response.setContentType("text/html");
 
+<<<<<<< HEAD
 			CarFacade facade = new CarFacade();
 			
 			out = response.getWriter();
 			
 			List<CarVO> listOfCars = facade.getAllCars();
+=======
+			ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
+			
+			CarDAO cardao = new CarDAO(connectionFactory.getConnection());
+			
+			out = response.getWriter();
+			
+			List<CarVO> listOfCars = cardao.selectAllCars();
+>>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 			
 			out.println("<html><body>");
 			out.println("<table>");
@@ -166,4 +182,8 @@ public class ViewCarServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
