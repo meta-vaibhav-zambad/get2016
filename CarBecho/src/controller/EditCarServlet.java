@@ -1,10 +1,7 @@
 package controller;
 
 import java.io.IOException;
-<<<<<<< HEAD
 
-=======
->>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -14,14 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
 import model.CarVO;
 import model.CarFacade;
-=======
-import model.CarDAO;
-import model.CarVO;
-import model.ConnectionFactory;
->>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 
 /**
  * Servlet implementation class EditCarServlet
@@ -48,21 +39,11 @@ public class EditCarServlet extends HttpServlet {
 		try{
 			response.setContentType("text/html");
 
-<<<<<<< HEAD
 			CarFacade facade = new CarFacade();
 			
 			out = response.getWriter();
 			
 			List<CarVO> listOfCars = facade.getAllCars();
-=======
-			ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
-			
-			CarDAO cardao = new CarDAO(connectionFactory.getConnection());
-			
-			out = response.getWriter();
-			
-			List<CarVO> listOfCars = cardao.selectAllCars();
->>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 			
 			out.println("<html><body>");
 			out.println("<table>");

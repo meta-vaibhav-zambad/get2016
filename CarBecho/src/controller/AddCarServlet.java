@@ -9,14 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
 import model.CarFacade;
 import model.CarVO;
-=======
-import model.CarDAO;
-import model.CarVO;
-import model.ConnectionFactory;
->>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 
 /**
  * Servlet implementation class AddCarServlet
@@ -43,13 +37,8 @@ public class AddCarServlet extends HttpServlet {
 			response.setContentType("text/html");
 
 			CarVO car = new CarVO();
-<<<<<<< HEAD
 			
 			CarFacade facade = new CarFacade();
-=======
-
-			ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
->>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 
 			car.setCompanyName(request.getParameter("car_company_name"));
 			car.setModelNumber(request.getParameter("car_model_number"));
@@ -71,19 +60,10 @@ public class AddCarServlet extends HttpServlet {
 
 				car.setAccessoryKitPresent(1);
 			}
-<<<<<<< HEAD
 				
 			out = response.getWriter();
 			
 			if(facade.addAndValidateCar(car)){
-=======
-
-			CarDAO cardao = new CarDAO(connectionFactory.getConnection());
-				
-			out = response.getWriter();
-			
-			if(cardao.addCar(car)){
->>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
 
 				out.println("<html><body>");
 				out.println("<b> Success </b>");
@@ -114,8 +94,4 @@ public class AddCarServlet extends HttpServlet {
 
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> cc42741eb3b9a26714b6808ca51a5880f8a8f0af
