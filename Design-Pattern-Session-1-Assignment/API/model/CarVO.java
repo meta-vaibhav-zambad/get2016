@@ -182,4 +182,11 @@ public class CarVO extends VehicleVO {
 	public void setAccessoryKitPresent(int isAccessoryKitPresent) {
 		this.isAccessoryKitPresent = isAccessoryKitPresent;
 	}
+
+
+	@Override
+	public double calculateOnRoadPrice(double roadTax, double carPrice) {
+		return (roadTax + carPrice);
+	}
+	
 }

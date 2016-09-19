@@ -66,6 +66,46 @@ public class CarDAO {
 		return flag;
 	}
 
+	public boolean selectCarBasedOnParameters(CarVO car){
+
+		boolean isCarPresent = true;
+
+		String sqlQuery = "SELECT CompanyName , ModelNumber , Name , FuelCapacity,"
+				+ "Milege, Price, RoadTax, AC, PowerSteering , AccessoryKit FROM car "
+				+ "WHERE CompanyName = ? AND ModelNumber = ? AND Name = ?;";
+
+		PreparedStatement prepareStatement = null;
+
+		try{
+
+			if(this.connection != null){
+				
+				prepareStatement = this.connection.prepareStatement(sqlQuery);
+				
+			}
+			if(prepareStatement != null){
+
+				prepareStatement.setString(1, car.getCompanyName());
+				prepareStatement.setString(2, car.getModelNumber());
+				prepareStatement.setString(3, car.getName());
+
+				ResultSet resultSet = prepareStatement.executeQuery();
+
+				if(resultSet != null){
+					if (!resultSet.isBeforeFirst() ) {    
+						isCarPresent = false;
+					} 
+				}
+			}
+
+		}catch(Exception ex){
+
+			ex.printStackTrace();
+		}
+
+		return isCarPresent;
+
+	}
 	public List<CarVO> selectAllCars(){
 
 		String sqlQuery = "SELECT CompanyName , ModelNumber , Name , FuelCapacity,"
@@ -108,10 +148,10 @@ public class CarDAO {
 	}
 
 	public boolean updateCar(CarVO car){
-
+		
 		String sqlQuery = "UPDATE Car SET CompanyName = ? , ModelNumber = ? , Name = ? , "
-				+ "FuelCapacity = ? , Milege = ? , Price = ?, RoadTax = ? , AC = ? ,PowerSteering = ?"
-				+ "AccessoryKit = ? WHERE CompanyName = ? AND ModelNumer = ? AND Name = ?";
+				+ "FuelCapacity = ? , Milege = ? , Price = ?, RoadTax = ? , AC = ? ,PowerSteering = ?,"
+				+ "AccessoryKit = ? WHERE ModelNumber = ?";
 
 		boolean flag = false;
 		PreparedStatement prepareStatement = null;
@@ -121,8 +161,8 @@ public class CarDAO {
 				prepareStatement = this.connection.prepareStatement(sqlQuery);
 			}
 			if(prepareStatement != null){
-				
-				
+
+
 				prepareStatement.setString(1, car.getCompanyName());
 				prepareStatement.setString(2, car.getModelNumber());
 				prepareStatement.setString(3, car.getName());
@@ -133,10 +173,8 @@ public class CarDAO {
 				prepareStatement.setInt(8, car.isAcPresent());
 				prepareStatement.setInt(9, car.isPowerSteeringPresent());
 				prepareStatement.setInt(10, car.isAccessoryKitPresent());
-				prepareStatement.setString(11, car.getCompanyName());
-				prepareStatement.setString(12, car.getModelNumber());
-				prepareStatement.setString(13, car.getName());
-				
+				prepareStatement.setString(11, car.getModelNumber());
+
 				prepareStatement.executeUpdate();
 
 				flag = true;

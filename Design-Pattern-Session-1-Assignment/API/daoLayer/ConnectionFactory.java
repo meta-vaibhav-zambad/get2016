@@ -38,8 +38,6 @@ public class ConnectionFactory {
 
 		try{
 			
-			System.out.println(this.getClass());
-			
 			inputStream = this.getClass().getClassLoader().getResourceAsStream("jdbc.properties");
 			
 			if(inputStream != null){

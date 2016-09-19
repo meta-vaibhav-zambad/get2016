@@ -7,25 +7,32 @@ import daoLayer.ConnectionFactory;
 
 public class CarFacade {
 
-	public boolean addAndValidateCar(CarVO car){
+	public int addAndValidateCar(CarVO car){
 
-		boolean flag = false;
-
+		//boolean flag = false;
+		
+		int result = 0;
+		
 		ConnectionFactory connectionFactory = null;
-
+		
 		try{
 
 			connectionFactory = ConnectionFactory.getInstance();
 
 			CarDAO cardao = new CarDAO(connectionFactory.getConnection());
+			
+			if(cardao.selectCarBasedOnParameters(car)){
+				
+				 result = 1;
+			}
+			
+			else if(cardao.addCar(car)){
 
-			if(cardao.addCar(car)){
-
-				flag = true;
+				result = 2;
 			}
 
 		}catch(Exception ex){
-
+			
 			ex.printStackTrace();
 		}finally{
 			try{
@@ -35,7 +42,7 @@ public class CarFacade {
 			}
 		}
 
-		return flag;
+		return result;
 	}
 
 	public boolean updateAndValidateCar(CarVO car){

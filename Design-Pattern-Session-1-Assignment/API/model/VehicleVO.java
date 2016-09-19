@@ -97,6 +97,7 @@ public abstract class VehicleVO {
 	 * @param roadTax the roadTax to set
 	 */
 	public abstract void setRoadTax(double roadTax);
-
+	
+	public abstract double calculateOnRoadPrice(double roadTax,double carPrice);
 	
 }
