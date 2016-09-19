@@ -60,6 +60,7 @@
 				<div>
 					<label> Does car have power steering ? </label>
 					<% 
+						yesChecked=""; noChecked="";
 						if(Integer.parseInt(request.getParameter("powerSteering")) == 0){
 							
 							noChecked="checked";
@@ -73,6 +74,7 @@
 				<div>
 					<label> Does car have accessory kit ? </label>
 					<% 
+						yesChecked=""; noChecked="";
 						if(Integer.parseInt(request.getParameter("accessoryKit")) == 0){
 							
 							noChecked="checked";
@@ -86,7 +88,11 @@
 				<div>
 					<button id='updateButton' type='submit'> <h4 id='buttontext'>  Update  <i class="fa fa-paper-plane" aria-hidden="true"></i> </h4>  </button>
 				</div>
+				
 			</form>
+			<div>
+				<a href="Index.html"> Home </a>
+			</div>
 		</div>
 	</body>
 </html>

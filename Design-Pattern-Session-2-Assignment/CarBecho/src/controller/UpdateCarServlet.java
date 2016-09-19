@@ -68,12 +68,17 @@ public class UpdateCarServlet extends HttpServlet {
 				out.println("<html><body>");
 				out.println("<b> Updated Successfully </b>");
 				out.println("</body></html>");
+				response.setHeader("Refresh", "1;url=ViewCars.jsp");
+				
 			}else{
 				
 				out.println("<html><body>");
 				out.println("<b> Failure </b>");
 				out.println("</body></html>");
+				response.setHeader("Refresh", "1;url=ViewCars.jsp");
 			}
+			
+			out.println("<a href='ViewCars.jsp'> View Cars </a>");
 
 		}catch(Exception ex){
 			ex.printStackTrace();

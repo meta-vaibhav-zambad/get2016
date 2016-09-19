@@ -63,17 +63,29 @@ public class AddCarServlet extends HttpServlet {
 				
 			out = response.getWriter();
 			
-			if(facade.addAndValidateCar(car)){
+			int result = facade.addAndValidateCar(car);
+			
+			if(result == 2){
 
 				out.println("<html><body>");
-				out.println("<b> Success </b>");
+				out.println("<b>Car Addded Successfully </b>");
 				out.println("</body></html>");
-			}else{
+				response.setHeader("Refresh", "1;url=ViewCars.jsp");
+			}else if(result == 1){
 				
+				out.println("<html><body>");
+				out.println("<b> Car Already Present </b>");
+				out.println("</body></html>");
+				response.setHeader("Refresh","1;url=ViewCars.jsp");
+			}
+			else{
 				out.println("<html><body>");
 				out.println("<b> Failure </b>");
 				out.println("</body></html>");
+				response.setHeader("Refresh","1;url=ViewCars.jsp");
 			}
+			
+			out.println("<a href='ViewCars.jsp'> View Cars </a>");
 
 		}catch(Exception ex){
 
