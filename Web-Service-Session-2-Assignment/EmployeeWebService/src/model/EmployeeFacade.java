@@ -34,10 +34,10 @@ public class EmployeeFacade {
 		return employeeList;
 	}
 
-	public boolean addEmployees(Employee employee){
+	public int addEmployees(Employee employee){
 
 		ConnectionFactory connectionFactory = null;
-		boolean result = false;
+		int result = 0;
 
 		try{
 
@@ -45,10 +45,8 @@ public class EmployeeFacade {
 
 			EmployeeDAO employeedao = new EmployeeDAO(connectionFactory.getConnection());
 
-			if(employeedao.addEmployee(employee)){
-
-				result = true;
-			}
+			result = employeedao.addEmployee(employee);
+			
 		}catch(Exception ex){
 
 			ex.printStackTrace();
@@ -83,7 +81,7 @@ public class EmployeeFacade {
 
 		return employeeList;
 	}
-	
+
 	public List<Employee> selectEmployeeBasedOnName(String employeeName){
 
 		ConnectionFactory connectionFactory = null;
@@ -110,11 +108,11 @@ public class EmployeeFacade {
 
 		return employeeList;
 	}
-	
-	public boolean deleteEmployeeBasedOnId(String employeeID){
-		
+
+	public int deleteEmployeeBasedOnId(String employeeID){
+
 		ConnectionFactory connectionFactory = null;
-		boolean result = false;
+		int result = 0;
 
 		try{
 
@@ -122,11 +120,8 @@ public class EmployeeFacade {
 
 			EmployeeDAO employeedao = new EmployeeDAO(connectionFactory.getConnection());
 
-			if(employeedao.deleteEmployee(employeeID)){
+			result = employeedao.deleteEmployee(employeeID);
 
-				result = true;
-			}
-			
 		}catch(Exception ex){
 
 			ex.printStackTrace();

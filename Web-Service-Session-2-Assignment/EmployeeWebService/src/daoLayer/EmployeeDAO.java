@@ -21,38 +21,46 @@ public class EmployeeDAO {
 		this.connection = connection;
 	}
 
-	public boolean addEmployee(Employee employee){
+	public int addEmployee(Employee employee){
 
 		String sqlQuery = "INSERT INTO employeeinfo (ID,EmployeeName,EmployeeAge) "
 				+ "Values (? , ? , ? );";
 
-		boolean flag = false;
+		int result = 0;
+		List<Employee> employeeList = null;
 		PreparedStatement prepareStatement = null;
 		try{
+			employeeList = selectEmployeeBasedOnID(employee.getId());
 
-			if(this.connection != null){
-				prepareStatement = this.connection.prepareStatement(sqlQuery);
+			if(employeeList.size() != 0){
+
+				result = 1;
 			}
-			if(prepareStatement != null){
+			
+			else{
+				if(this.connection != null){
+					prepareStatement = this.connection.prepareStatement(sqlQuery);
+				}
+				if(prepareStatement != null){
 
-				prepareStatement.setString(1, employee.getId());
-				prepareStatement.setString(2, employee.getName());
-				prepareStatement.setInt(3, employee.getAge());
+					prepareStatement.setString(1, employee.getId());
+					prepareStatement.setString(2, employee.getName());
+					prepareStatement.setInt(3, employee.getAge());
 
-				prepareStatement.executeUpdate();
+					prepareStatement.executeUpdate();
 
-				flag = true;
+					result = 2;
+				}
 			}
-
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
 
-		return flag;
+		return result;
 	}
 
 	public List<Employee> selectEmployeeBasedOnID(String employeeID){
-
+		
 		String sqlQuery = "SELECT ID,EmployeeName,EmployeeAge FROM employeeinfo "
 				+ "WHERE ID = ?;";
 
@@ -74,9 +82,8 @@ public class EmployeeDAO {
 				prepareStatement.setString(1, employeeID);
 
 				ResultSet resultSet = prepareStatement.executeQuery();
-
+				
 				if(resultSet != null){
-
 
 					while(resultSet.next()){
 
@@ -94,7 +101,7 @@ public class EmployeeDAO {
 
 			ex.printStackTrace();
 		}
-
+		
 		return listOfEmployee;
 
 	}
@@ -190,31 +197,43 @@ public class EmployeeDAO {
 
 	}
 
-	public boolean deleteEmployee(String employeeID){
+	public int deleteEmployee(String employeeID){
+
+		List<Employee> employeeList = null;
 
 		String sqlQuery = "DELETE FROM employeeinfo WHERE ID = ?;";
 
-		boolean flag = false;
+		int result = 0;
 
 		PreparedStatement prepareStatement = null;
 		try{
 
-			if(this.connection != null){
-				prepareStatement = this.connection.prepareStatement(sqlQuery);
+			employeeList = selectEmployeeBasedOnID(employeeID);
+
+			if(employeeList.size() == 0){
+
+				result = 1;
 			}
-			if(prepareStatement != null){
 
-				prepareStatement.setString(1, employeeID);
+			else{
 
-				prepareStatement.executeUpdate();
+				if(this.connection != null){
+					prepareStatement = this.connection.prepareStatement(sqlQuery);
+				}
+				if(prepareStatement != null){
 
-				flag = true;
+					prepareStatement.setString(1, employeeID);
+
+					prepareStatement.executeUpdate();
+
+					result = 2;
+				}
 			}
 
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
 
-		return flag;
+		return result;
 	}
 }
